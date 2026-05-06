@@ -1,0 +1,55 @@
+---
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const APP_STORE_URL = 'https://apps.apple.com/app/idTBD'; // TBD: App Store ID al implementar
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=es.tuvi.mercury';
+---
+
+<div class="flex flex-wrap gap-3 items-center justify-center">
+  <a
+    href={APP_STORE_URL}
+    target="_blank"
+    rel="noopener"
+    aria-label={t('cta.app_store_alt', locale)}
+    data-store="app_store"
+    class="store-link"
+  >
+    <img
+      src="/apple-app-store-badge.svg"
+      alt={t('cta.app_store_alt', locale)}
+      height="48"
+      loading="eager"
+    />
+  </a>
+  <a
+    href={PLAY_STORE_URL}
+    target="_blank"
+    rel="noopener"
+    aria-label={t('cta.play_store_alt', locale)}
+    data-store="play_store"
+    class="store-link"
+  >
+    <img
+      src="/google-play-badge.png"
+      alt={t('cta.play_store_alt', locale)}
+      height="48"
+      loading="eager"
+    />
+  </a>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('a.store-link').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (typeof plausible === 'function') {
+        plausible('cta_click', { props: { store: a.dataset.store } });
+      }
+    });
+  });
+</script>
