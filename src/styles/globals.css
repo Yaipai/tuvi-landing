@@ -3,6 +3,9 @@
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
+@import '@fontsource/outfit/600.css';
+@import '@fontsource/outfit/700.css';
+@import '@fontsource/outfit/800.css';
 
 @theme {
   --color-tuvi-primary: #0f766e;
@@ -19,6 +22,7 @@
   --color-tuvi-border: #e2e8f0;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', system-ui, sans-serif;
 
   --max-width-landing: 1100px;
 }
