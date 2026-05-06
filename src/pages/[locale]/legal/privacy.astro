@@ -1,4 +1,5 @@
 ---
+import { marked } from 'marked';
 import Base from '../../../layouts/Base.astro';
 import LocaleSelector from '../../../components/LocaleSelector.astro';
 import Footer from '../../../components/Footer.astro';
@@ -9,9 +10,18 @@ export async function getStaticPaths() {
 }
 
 const locale = Astro.params.locale as Locale;
-const modules = import.meta.glob('../../../content/legal-privacy/*.md', { eager: true, query: '?raw', import: 'default' });
-const file = modules[`/src/content/legal-privacy/${locale}.md`] ?? modules[`/src/content/legal-privacy/es.md`];
-const html = String(file ?? '');
+const modules = import.meta.glob<string>('../../../content/legal-privacy/*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+});
+
+const raw =
+  Object.entries(modules).find(([path]) => path.endsWith(`/${locale}.md`))?.[1] ??
+  Object.entries(modules).find(([path]) => path.endsWith('/es.md'))?.[1] ??
+  '';
+
+const html = await marked.parse(String(raw));
 ---
 
 <Base locale={locale} pathWithinLocale="/legal/privacy/">
@@ -19,6 +29,6 @@ const html = String(file ?? '');
     <a href={`/${locale}/`} class="font-bold text-xl text-tuvi-primary">Tuvi</a>
     <LocaleSelector current={locale} />
   </header>
-  <article class="prose mx-auto px-6 py-8 max-w-3xl whitespace-pre-wrap" set:html={html} />
+  <article class="prose mx-auto px-6 py-8 max-w-3xl" set:html={html} />
   <Footer locale={locale} />
 </Base>
