@@ -1,0 +1,27 @@
+---
+export const prerender = false;
+
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Carousel from '../components/Carousel.astro';
+import LocaleSelector from '../components/LocaleSelector.astro';
+import Footer from '../components/Footer.astro';
+import { pickLocale } from '../i18n/pickLocale';
+
+const acceptLanguage = Astro.request.headers.get('accept-language');
+const country = (Astro.locals as any).runtime?.cf?.country as string | undefined;
+const locale = pickLocale(acceptLanguage, country);
+
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300');
+Astro.response.headers.set('Vary', 'Accept-Language, CF-IPCountry');
+---
+
+<Base locale={locale}>
+  <header class="max-w-landing mx-auto px-6 py-4 flex justify-between items-center">
+    <span class="font-bold text-xl text-tuvi-primary">Tuvi</span>
+    <LocaleSelector current={locale} />
+  </header>
+  <Hero locale={locale} country={country} />
+  <Carousel />
+  <Footer locale={locale} />
+</Base>
