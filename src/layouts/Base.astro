@@ -1,0 +1,40 @@
+---
+import { SUPPORTED_LOCALES, type Locale } from '../i18n/locales';
+import { t } from '../i18n/ui-strings';
+import '../styles/globals.css';
+
+interface Props { locale: Locale; pathWithinLocale?: string; noindex?: boolean; }
+const { locale, pathWithinLocale = '', noindex = false } = Astro.props;
+const canonical = `https://tuvi.education/${locale}${pathWithinLocale}`;
+const PLAUSIBLE_DOMAIN = 'tuvi.education';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t('meta.title', locale)}</title>
+    <meta name="description" content={t('meta.description', locale)} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <link rel="canonical" href={canonical} />
+    {SUPPORTED_LOCALES.map((loc) => (
+      <link rel="alternate" hreflang={loc} href={`https://tuvi.education/${loc}${pathWithinLocale}`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`https://tuvi.education/en${pathWithinLocale}`} />
+
+    <meta property="og:title" content={t('meta.title', locale)} />
+    <meta property="og:description" content={t('meta.description', locale)} />
+    <meta property="og:image" content="https://tuvi.education/og-default.png" />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script defer data-domain={PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
