@@ -1,0 +1,33 @@
+---
+const screenshots = [
+  { src: '/screenshots/01-biblioteca.webp', alt: 'Biblioteca de packs' },
+  { src: '/screenshots/02-prepare-class.webp', alt: 'Preparar clase con IA' },
+  { src: '/screenshots/03-material-pdf.webp', alt: 'Material PDF generado' },
+];
+---
+
+<section class="max-w-landing mx-auto px-6 pb-12">
+  <div
+    class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 hide-scrollbar"
+  >
+    {
+      screenshots.map((s, i) => (
+        <img
+          src={s.src}
+          alt={s.alt}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          class="w-64 md:w-80 flex-shrink-0 snap-center rounded-xl shadow-lg"
+        />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+</style>
