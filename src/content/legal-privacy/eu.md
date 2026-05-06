@@ -2,7 +2,7 @@
 
 ## Tratamenduaren arduraduna
 
-Datu pertsonalen tratamenduaren arduraduna tuvi.education webgunearen titularra da. Arduradunarekin harremanetarako: contacto@tuvi.education.
+Datu pertsonalen tratamenduaren arduraduna tuvi.education webgunearen titularra da. Arduradunarekin harremanetarako: contact@tuvi.education.
 
 ## Bildutzen ditugun datuak
 
@@ -73,7 +73,7 @@ Zure eskubideak modu hauetan baliatu ditzakezu:
 - Sarbidea eta eramangarritasuna: Profila > "Esportatu nire datuak" aukeratik.
 - Ezabatzea: Profila > "Ezabatu nire kontua" aukeratik.
 - Zuzentzea: Profila > datu pertsonalak editatu aukeratik.
-- Aurka egitea/Mugatzea: emaila contacto@tuvi.education helbidera.
+- Aurka egitea/Mugatzea: emaila contact@tuvi.education helbidera.
 
 Zure eskubideak egoki jaso ez direla uste baduzu, erreklamazioa aurkeztu dezakezu Datuen Babeseko Espainiako Agentziaren aurrean (aepd.es).
 

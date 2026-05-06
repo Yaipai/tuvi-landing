@@ -2,7 +2,7 @@
 
 ## 数据处理负责人
 
-个人数据处理负责人为 tuvi.education 的所有者。您可以通过 contacto@tuvi.education 联系负责人。
+个人数据处理负责人为 tuvi.education 的所有者。您可以通过 contact@tuvi.education 联系负责人。
 
 ## 我们收集的数据
 
@@ -73,7 +73,7 @@
 - 访问和可携性：从"个人资料">"导出我的数据"。
 - 删除：从"个人资料">"删除我的账户"。
 - 更正：从"个人资料">编辑个人数据。
-- 反对/限制：发送邮件至 contacto@tuvi.education。
+- 反对/限制：发送邮件至 contact@tuvi.education。
 
 如果您认为您的权利未得到妥善处理，可以向西班牙数据保护局（aepd.es）提出投诉。
 

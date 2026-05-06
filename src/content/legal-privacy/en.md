@@ -2,7 +2,7 @@
 
 ## Data controller
 
-The data controller for personal data is the operator of tuvi.education. You can contact the controller at contacto@tuvi.education.
+The data controller for personal data is the operator of tuvi.education. You can contact the controller at contact@tuvi.education.
 
 ## Data we collect
 
@@ -73,7 +73,7 @@ You can exercise your rights in the following ways:
 - Access and portability: from Profile > "Export my data".
 - Erasure: from Profile > "Delete my account".
 - Rectification: from Profile > edit personal data.
-- Objection/Restriction: email contacto@tuvi.education.
+- Objection/Restriction: email contact@tuvi.education.
 
 If you believe your rights have not been properly addressed, you may file a complaint with the Spanish Data Protection Agency (aepd.es).
 

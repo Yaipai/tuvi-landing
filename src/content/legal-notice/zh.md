@@ -8,7 +8,7 @@
 
 如有与本网站相关的任何咨询,可联系:
 
-电子邮件:contacto@tuvi.education
+电子邮件:contact@tuvi.education
 
 ## 网站目的
 

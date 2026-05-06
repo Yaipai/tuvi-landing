@@ -8,7 +8,7 @@ The operator of this website is a natural person residing in Spain. Contact deta
 
 For any inquiries related to this website, you may contact:
 
-Email: contacto@tuvi.education
+Email: contact@tuvi.education
 
 ## Purpose of the website
 

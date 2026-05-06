@@ -8,7 +8,7 @@ Webgune honen titularra Espainian egoitza duen pertsona fisikoa da. Indarreko ar
 
 Webgune honi buruzko edozein kontsultarako, hona zuzendu zaitezke:
 
-Emaila: contacto@tuvi.education
+Emaila: contact@tuvi.education
 
 ## Webgunearen xedea
 

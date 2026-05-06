@@ -8,7 +8,7 @@ Le titulaire de ce site web est une personne physique résidant en Espagne. Conf
 
 Pour toute question relative à ce site web, vous pouvez vous adresser à :
 
-Email : contacto@tuvi.education
+Email : contact@tuvi.education
 
 ## Objet du site web
 

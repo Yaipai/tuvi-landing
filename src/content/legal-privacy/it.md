@@ -2,7 +2,7 @@
 
 ## Titolare del trattamento
 
-Il titolare del trattamento dei dati personali è il titolare di tuvi.education. È possibile contattare il titolare all'indirizzo contacto@tuvi.education.
+Il titolare del trattamento dei dati personali è il titolare di tuvi.education. È possibile contattare il titolare all'indirizzo contact@tuvi.education.
 
 ## Dati che raccogliamo
 
@@ -73,7 +73,7 @@ Puoi esercitare i tuoi diritti nei seguenti modi:
 - Accesso e portabilità: da Profilo > "Esportare i miei dati".
 - Cancellazione: da Profilo > "Eliminare il mio account".
 - Rettifica: da Profilo > modificare i dati personali.
-- Opposizione/Limitazione: email a contacto@tuvi.education.
+- Opposizione/Limitazione: email a contact@tuvi.education.
 
 Se ritiene che i suoi diritti non siano stati adeguatamente rispettati, può presentare un reclamo presso l'Agencia Española de Protección de Datos (aepd.es).
 

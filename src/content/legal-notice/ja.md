@@ -8,7 +8,7 @@
 
 本ウェブサイトに関するお問い合わせは、下記までご連絡ください。
 
-Email: contacto@tuvi.education
+Email: contact@tuvi.education
 
 ## ウェブサイトの目的
 

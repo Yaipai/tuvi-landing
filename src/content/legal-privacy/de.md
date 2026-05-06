@@ -2,7 +2,7 @@
 
 ## Verantwortlicher für die Datenverarbeitung
 
-Der Verantwortliche für die Verarbeitung personenbezogener Daten ist der Inhaber von tuvi.education. Sie können den Verantwortlichen unter contacto@tuvi.education kontaktieren.
+Der Verantwortliche für die Verarbeitung personenbezogener Daten ist der Inhaber von tuvi.education. Sie können den Verantwortlichen unter contact@tuvi.education kontaktieren.
 
 ## Von uns erhobene Daten
 
@@ -73,7 +73,7 @@ Sie können Ihre Rechte auf folgende Weise ausüben:
 - Auskunft und Datenübertragbarkeit: unter Profil > „Meine Daten exportieren".
 - Löschung: unter Profil > „Mein Konto löschen".
 - Berichtigung: unter Profil > personenbezogene Daten bearbeiten.
-- Widerspruch/Einschränkung: E-Mail an contacto@tuvi.education.
+- Widerspruch/Einschränkung: E-Mail an contact@tuvi.education.
 
 Wenn Sie der Ansicht sind, dass Ihre Rechte nicht angemessen berücksichtigt wurden, können Sie eine Beschwerde bei der Agencia Española de Protección de Datos (aepd.es) einreichen.
 

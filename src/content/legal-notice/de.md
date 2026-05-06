@@ -8,7 +8,7 @@ Der Inhaber dieser Website ist eine natürliche Person mit Wohnsitz in Spanien. 
 
 Bei Fragen zu dieser Website können Sie sich an folgende Adresse wenden:
 
-E-Mail: contacto@tuvi.education
+E-Mail: contact@tuvi.education
 
 ## Zweck der Website
 

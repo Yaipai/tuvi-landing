@@ -8,7 +8,7 @@
 
 इस वेबसाइट से संबंधित किसी भी प्रश्न के लिए, आप निम्नलिखित पते पर संपर्क कर सकते हैं:
 
-Email: contacto@tuvi.education
+Email: contact@tuvi.education
 
 ## वेबसाइट का उद्देश्य
 

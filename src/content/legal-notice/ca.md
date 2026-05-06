@@ -8,7 +8,7 @@ El titular d'aquest lloc web és una persona física amb residència a Espanya. 
 
 Per a qualsevol consulta relacionada amb aquest lloc web, podeu adreçar-vos a:
 
-Email: contacto@tuvi.education
+Email: contact@tuvi.education
 
 ## Objecte del lloc web
 
