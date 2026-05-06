@@ -1,0 +1,20 @@
+---
+export const prerender = false;
+
+const { code } = Astro.params;
+const ua = (Astro.request.headers.get('user-agent') ?? '').toLowerCase();
+const APP_STORE_URL = 'https://apps.apple.com/app/idTBD';   // TBD: confirmar al implementar
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=es.tuvi.mercury';
+
+const isIOS = /iphone|ipad|ipod/.test(ua);
+const isAndroid = /android/.test(ua);
+
+let target = 'https://tuvi.education/';
+if (code) {
+  const safeCode = encodeURIComponent(String(code));
+  if (isIOS) target = `${APP_STORE_URL}?campaign=${safeCode}`;
+  else if (isAndroid) target = `${PLAY_STORE_URL}&referrer=${encodeURIComponent('code=' + safeCode)}`;
+}
+
+return Astro.redirect(target, 302);
+---
