@@ -2,7 +2,7 @@
 
 ## Responsable do tratamento
 
-O responsable do tratamento dos datos persoais é o titular de tuvi.es. Pode contactar co responsable en contacto@tuvi.es.
+O responsable do tratamento dos datos persoais é o titular de tuvi.education. Pode contactar co responsable en contacto@tuvi.education.
 
 ## Datos que recollemos
 
@@ -73,7 +73,7 @@ Podes exercer os teus dereitos das seguintes formas:
 - Acceso e portabilidade: desde Perfil > "Exportar os meus datos".
 - Supresión: desde Perfil > "Eliminar a miña conta".
 - Rectificación: desde Perfil > editar datos persoais.
-- Oposición/Limitación: email a contacto@tuvi.es.
+- Oposición/Limitación: email a contacto@tuvi.education.
 
 Se consideras que os teus dereitos non foron atendidos adecuadamente, podes presentar unha reclamación ante a Axencia Española de Protección de Datos (aepd.es).
 

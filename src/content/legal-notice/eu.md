@@ -8,11 +8,11 @@ Webgune honen titularra Espainian egoitza duen pertsona fisikoa da. Indarreko ar
 
 Webgune honi buruzko edozein kontsultarako, hona zuzendu zaitezke:
 
-Emaila: contacto@tuvi.es
+Emaila: contacto@tuvi.education
 
 ## Webgunearen xedea
 
-tuvi.es adimen artifizialarekin tutoretzak egiteko plataforma bat da, hezkuntzan oinarritua. Irakasleei ikastaroak sortzeko eta ikasleei modu pertsonalizatuan ikasteko aukera ematen die, IAk lagundutako ikasketa modu desberdinak erabiliz.
+tuvi.education adimen artifizialarekin tutoretzak egiteko plataforma bat da, hezkuntzan oinarritua. Irakasleei ikastaroak sortzeko eta ikasleei modu pertsonalizatuan ikasteko aukera ematen die, IAk lagundutako ikasketa modu desberdinak erabiliz.
 
 ## Ostalaritza
 
@@ -20,7 +20,7 @@ Webgune hau Cloudflare, Inc. enpresaren zerbitzarietan ostatatzen da, Europar Ba
 
 ## Jabetza intelektuala
 
-tuvi.es webgunearen softwarea, diseinua, logotipoak eta egitura titularraren jabetza dira. Beronen erreprodukzioa, banaketa edo eraldaketa debekatuta dago baimen espresurik gabe.
+tuvi.education webgunearen softwarea, diseinua, logotipoak eta egitura titularraren jabetza dira. Beronen erreprodukzioa, banaketa edo eraldaketa debekatuta dago baimen espresurik gabe.
 
 Erabiltzaileek sortutako edukia (ikastaroak, materialak, elkarrizketak) erabiltzaile bakoitzaren jabetza da. Titularrak ez ditu eskubiderik aldarrikatzen eduki horren gainean.
 

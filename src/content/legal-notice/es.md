@@ -8,11 +8,11 @@ El titular de este sitio web es una persona física con residencia en España. D
 
 Para cualquier consulta relacionada con este sitio web, puede dirigirse a:
 
-Email: contacto@tuvi.es
+Email: contacto@tuvi.education
 
 ## Objeto del sitio web
 
-tuvi.es es una plataforma de tutorías con inteligencia artificial orientada a la formación. Permite a profesores crear cursos y a alumnos aprender de forma personalizada mediante diferentes modos de estudio asistidos por IA.
+tuvi.education es una plataforma de tutorías con inteligencia artificial orientada a la formación. Permite a profesores crear cursos y a alumnos aprender de forma personalizada mediante diferentes modos de estudio asistidos por IA.
 
 ## Alojamiento
 
@@ -20,7 +20,7 @@ Este sitio web está alojado en los servidores de Cloudflare, Inc., con centros 
 
 ## Propiedad intelectual
 
-El software, diseño, logotipos y estructura de tuvi.es son propiedad del titular. Queda prohibida su reproducción, distribución o transformación sin autorización expresa.
+El software, diseño, logotipos y estructura de tuvi.education son propiedad del titular. Queda prohibida su reproducción, distribución o transformación sin autorización expresa.
 
 El contenido generado por los usuarios (cursos, materiales, conversaciones) es propiedad de cada usuario. El titular no reclama derechos sobre dicho contenido.
 

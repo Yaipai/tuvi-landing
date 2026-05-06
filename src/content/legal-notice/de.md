@@ -8,11 +8,11 @@ Der Inhaber dieser Website ist eine natürliche Person mit Wohnsitz in Spanien. 
 
 Bei Fragen zu dieser Website können Sie sich an folgende Adresse wenden:
 
-E-Mail: contacto@tuvi.es
+E-Mail: contacto@tuvi.education
 
 ## Zweck der Website
 
-tuvi.es ist eine Plattform für Nachhilfe mit künstlicher Intelligenz, die auf Bildung ausgerichtet ist. Sie ermöglicht es Lehrern, Kurse zu erstellen, und Schülern, personalisiert durch verschiedene KI-gestützte Lernmodi zu lernen.
+tuvi.education ist eine Plattform für Nachhilfe mit künstlicher Intelligenz, die auf Bildung ausgerichtet ist. Sie ermöglicht es Lehrern, Kurse zu erstellen, und Schülern, personalisiert durch verschiedene KI-gestützte Lernmodi zu lernen.
 
 ## Hosting
 
@@ -20,7 +20,7 @@ Diese Website wird auf den Servern von Cloudflare, Inc. gehostet, mit Rechenzent
 
 ## Geistiges Eigentum
 
-Die Software, das Design, die Logos und die Struktur von tuvi.es sind Eigentum des Inhabers. Die Vervielfältigung, Verbreitung oder Umgestaltung ohne ausdrückliche Genehmigung ist untersagt.
+Die Software, das Design, die Logos und die Struktur von tuvi.education sind Eigentum des Inhabers. Die Vervielfältigung, Verbreitung oder Umgestaltung ohne ausdrückliche Genehmigung ist untersagt.
 
 Die von den Nutzern erstellten Inhalte (Kurse, Materialien, Gespräche) sind Eigentum des jeweiligen Nutzers. Der Inhaber erhebt keine Rechte an diesen Inhalten.
 
