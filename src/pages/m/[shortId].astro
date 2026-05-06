@@ -1,0 +1,16 @@
+---
+export const prerender = false;
+
+import Base from '../../layouts/Base.astro';
+import DeeplinkFallback from '../../components/DeeplinkFallback.astro';
+import { pickLocale } from '../../i18n/pickLocale';
+
+const { shortId } = Astro.params;
+const acceptLanguage = Astro.request.headers.get('accept-language');
+const country = (Astro.locals as any).runtime?.cf?.country as string | undefined;
+const locale = pickLocale(acceptLanguage, country);
+---
+
+<Base locale={locale} pathWithinLocale={`/m/${shortId}`} noindex={true}>
+  <DeeplinkFallback type="material" id={String(shortId ?? '')} locale={locale} />
+</Base>
