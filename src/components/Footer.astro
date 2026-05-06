@@ -1,0 +1,24 @@
+---
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<footer
+  class="border-t border-tuvi-border mt-16 py-8 text-center text-sm text-tuvi-text-secondary"
+>
+  <nav class="space-x-4 mb-2">
+    <a href={`/${locale}/legal/terms/`} class="hover:text-tuvi-primary"
+      >{t('footer.terms', locale)}</a
+    >
+    <span>·</span>
+    <a href={`/${locale}/legal/privacy/`} class="hover:text-tuvi-primary"
+      >{t('footer.privacy', locale)}</a
+    >
+  </nav>
+  <p>{t('footer.copyright', locale)}</p>
+</footer>
