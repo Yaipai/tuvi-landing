@@ -4,13 +4,32 @@
 @import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
 
+@theme {
+  --color-tuvi-primary: #0f766e;
+  --color-tuvi-primary-light: #ccfbf1;
+  --color-tuvi-primary-lighter: #f0fdfa;
+  --color-tuvi-primary-dark: #115e59;
+  --color-tuvi-accent: #b45309;
+  --color-tuvi-accent-light: #fef3c7;
+  --color-tuvi-background: #f4f7f2;
+  --color-tuvi-surface: #ffffff;
+  --color-tuvi-text-primary: #111827;
+  --color-tuvi-text-secondary: #4b5563;
+  --color-tuvi-text-tertiary: #52667a;
+  --color-tuvi-border: #e2e8f0;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --max-width-landing: 1100px;
+}
+
 html {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  background: theme(colors.tuvi.surface);
-  color: theme(colors.tuvi.text-primary);
+  background: var(--color-tuvi-surface);
+  color: var(--color-tuvi-text-primary);
 }
