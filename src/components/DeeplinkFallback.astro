@@ -1,0 +1,39 @@
+---
+import StoreBadges from './StoreBadges.astro';
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  type: 'material' | 'session';
+  id: string;
+  locale: Locale;
+}
+const { type, id, locale } = Astro.props;
+const openingKey = type === 'material' ? 'm.opening' : 's.opening';
+const fallbackKey =
+  type === 'material' ? 'm.fallback_question' : 's.fallback_question';
+const scheme = type === 'material' ? `tuvi://m/${id}` : `tuvi://s/${id}`;
+---
+
+<main class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+  <p id="opening" class="text-xl mb-6">{t(openingKey, locale)}</p>
+
+  <div id="fallback" class="hidden mt-8">
+    <p class="text-base mb-4 text-tuvi-text-secondary">
+      {t(fallbackKey, locale)}
+    </p>
+    <StoreBadges locale={locale} />
+    <p class="mt-6 text-xs text-tuvi-text-tertiary">ID: {id}</p>
+  </div>
+</main>
+
+<script is:inline define:vars={{ scheme }}>
+  setTimeout(() => {
+    window.location.href = scheme;
+  }, 100);
+
+  setTimeout(() => {
+    document.getElementById('opening').style.display = 'none';
+    document.getElementById('fallback').classList.remove('hidden');
+  }, 1500);
+</script>
