@@ -1,0 +1,41 @@
+---
+import { t } from '../i18n/ui-strings';
+import { curriculumBullet } from '../lib/curriculumBullet';
+import StoreBadges from './StoreBadges.astro';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+  country: string | undefined;
+}
+const { locale, country } = Astro.props;
+const bullet1 = curriculumBullet(locale, country);
+---
+
+<section class="max-w-landing mx-auto px-6 py-12 text-center">
+  <p class="text-2xl mb-2">{t('nav.greeting', locale)} 👋</p>
+
+  <h1 class="text-3xl md:text-5xl font-bold leading-tight text-tuvi-text-primary mt-6">
+    {t('hero.headline', locale)}
+  </h1>
+
+  <p class="mt-4 text-lg text-tuvi-text-secondary max-w-2xl mx-auto">
+    {t('hero.subhead', locale)}
+  </p>
+
+  <ul class="mt-8 flex flex-wrap gap-3 justify-center">
+    <li class="px-4 py-1.5 bg-tuvi-primary-light text-tuvi-primary-dark rounded-full text-sm font-medium">
+      ✓ {bullet1}
+    </li>
+    <li class="px-4 py-1.5 bg-tuvi-primary-light text-tuvi-primary-dark rounded-full text-sm font-medium">
+      ✓ {t('hero.bullet2', locale)}
+    </li>
+    <li class="px-4 py-1.5 bg-tuvi-primary-light text-tuvi-primary-dark rounded-full text-sm font-medium">
+      ✓ {t('hero.bullet3', locale)}
+    </li>
+  </ul>
+
+  <div class="mt-8">
+    <StoreBadges locale={locale} />
+  </div>
+</section>
