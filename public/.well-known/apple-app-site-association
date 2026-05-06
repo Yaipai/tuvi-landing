@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "FRL6C3B63P.es.tuvi.mercury",
+          "FRL6C3B63P.es.tuvi.mercury.dev",
+          "FRL6C3B63P.es.tuvi.mercury.preview"
+        ],
+        "components": [
+          { "/": "/m/*" },
+          { "/": "/s/*" },
+          { "/": "/r/*" },
+          { "/": "/app/*" }
+        ]
+      }
+    ]
+  }
+}
