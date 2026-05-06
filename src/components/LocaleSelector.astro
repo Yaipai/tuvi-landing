@@ -1,0 +1,41 @@
+---
+import { SUPPORTED_LOCALES, type Locale } from '../i18n/locales';
+
+interface Props {
+  current: Locale;
+}
+const { current } = Astro.props;
+
+const LOCALE_NAMES: Record<Locale, string> = {
+  es: 'Español',
+  en: 'English',
+  ca: 'Català',
+  gl: 'Galego',
+  eu: 'Euskara',
+  fr: 'Français',
+  de: 'Deutsch',
+  pt: 'Português',
+  zh: '中文',
+  hi: 'हिन्दी',
+  ja: '日本語',
+  it: 'Italiano',
+};
+---
+
+<form action="#" method="GET" class="inline-block">
+  <label class="sr-only" for="locale-select">Language</label>
+  <select
+    id="locale-select"
+    name="to"
+    onchange="window.location.href = '/' + this.value + '/'"
+    class="bg-tuvi-surface text-tuvi-text-primary border border-tuvi-border rounded px-3 py-1.5 text-sm cursor-pointer"
+  >
+    {
+      SUPPORTED_LOCALES.map((loc) => (
+        <option value={loc} selected={loc === current}>
+          {LOCALE_NAMES[loc]}
+        </option>
+      ))
+    }
+  </select>
+</form>
