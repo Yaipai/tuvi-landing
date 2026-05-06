@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import Carousel from '../../components/Carousel.astro';
+import LocaleSelector from '../../components/LocaleSelector.astro';
+import Footer from '../../components/Footer.astro';
+import { SUPPORTED_LOCALES, type Locale } from '../../i18n/locales';
+
+export function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const country = (Astro.locals as any).runtime?.cf?.country as string | undefined;
+---
+
+<Base locale={locale}>
+  <header class="max-w-landing mx-auto px-6 py-4 flex justify-between items-center">
+    <span class="font-bold text-xl text-tuvi-primary">Tuvi</span>
+    <LocaleSelector current={locale} />
+  </header>
+  <Hero locale={locale} country={country} />
+  <Carousel />
+  <Footer locale={locale} />
+</Base>
