@@ -33,6 +33,32 @@ export type UIStringKey =
   | 'eje4.bullet2'
   | 'eje4.bullet3'
   | 'eje4.demo_line'
+  | 'planes.title'
+  | 'planes.subtitle'
+  | 'planes.free_name'
+  | 'planes.free_body'
+  | 'planes.esencial_name'
+  | 'planes.esencial_body'
+  | 'planes.pro_name'
+  | 'planes.pro_body'
+  | 'planes.premium_name'
+  | 'planes.premium_body'
+  | 'planes.recommended_badge'
+  | 'planes.cap_packs'
+  | 'planes.cap_materials'
+  | 'planes.cap_resources'
+  | 'planes.footnote'
+  | 'faq.cat5_title'
+  | 'faq.q_choose_plan'
+  | 'faq.a_choose_plan'
+  | 'faq.q_change_plan'
+  | 'faq.a_change_plan'
+  | 'faq.q_short_mid_month'
+  | 'faq.a_short_mid_month'
+  | 'faq.q_annual'
+  | 'faq.a_annual'
+  | 'faq.q_free_expires'
+  | 'faq.a_free_expires'
   | 'faq_teaser.title'
   | 'faq_teaser.q1'
   | 'faq_teaser.q2'
@@ -459,6 +485,146 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     hi: 'अपने स्कूल के लिए डेमो? info@tuvi.education पर लिखें',
     ja: '学校向けデモをご希望ですか？ info@tuvi.education までメールを',
     it: 'Una demo per la tua scuola? Scrivi a info@tuvi.education',
+  },
+
+  // ──────────────────────── EJE 5 · PLANES ───────────────────────
+  'planes.title': {
+    es: 'Cuatro planes. Eliges según cuántas clases preparas al mes.',
+    en: 'Four plans. You pick based on how many lessons you prep each month.',
+    ca: 'Quatre plans. Tries segons quantes classes prepares al mes.',
+    gl: 'Catro plans. Escolles segundo cantas clases preparas ao mes.',
+    eu: 'Lau plan. Hilean prestatzen dituzun klase kopuruaren arabera aukeratzen duzu.',
+    fr: 'Quatre plans. Tu choisis selon le nombre de cours que tu prépares par mois.',
+    de: 'Vier Pläne. Du wählst je nach Anzahl der Unterrichtsstunden, die du pro Monat vorbereitest.',
+    pt: 'Quatro planos. Escolhes consoante quantas aulas preparas por mês.',
+    zh: '四个套餐。根据你每月备多少节课来选择。',
+    hi: 'चार प्लान। आप महीने में कितनी कक्षाएँ तैयार करते हैं, उसके अनुसार चुनें।',
+    ja: '4 つのプラン。月にどれだけ授業を準備するかで選びます。',
+    it: 'Quattro piani. Scegli in base a quante lezioni prepari al mese.',
+  },
+  'planes.subtitle': {
+    es: 'El precio lo verás en la app cuando elijas. 14 días gratis en todos los planes de pago. Cancelas cuando quieras desde la propia tienda.',
+    en: 'You\'ll see the price inside the app when you choose. 14 days free on every paid plan. Cancel anytime from the store itself.',
+    ca: 'El preu el veuràs a l\'app quan triïs. 14 dies gratis a tots els plans de pagament. Cancel·les quan vulguis des de la pròpia botiga.',
+    gl: 'O prezo verasllo na app cando escollas. 14 días gratis en todos os plans de pago. Cancelas cando queiras desde a propia tenda.',
+    eu: 'Prezua aplikazioan ikusiko duzu aukeratzean. 14 egun doan ordainpeko plan guztietan. Nahi duzunean ezeztatu, dendatik bertatik.',
+    fr: 'Tu verras le prix dans l\'app au moment de choisir. 14 jours gratuits sur chaque plan payant. Tu annules quand tu veux depuis le store.',
+    de: 'Den Preis siehst du in der App bei der Auswahl. 14 Tage kostenlos in jedem Bezahlplan. Jederzeit im Store kündbar.',
+    pt: 'O preço verás na app quando escolheres. 14 dias grátis em todos os planos pagos. Cancelas quando quiseres pela própria loja.',
+    zh: '在应用中选择套餐时会显示价格。所有付费套餐均含 14 天免费试用。可随时在应用商店取消。',
+    hi: 'चुनते समय कीमत आपको ऐप में दिखेगी। हर भुगतान वाले प्लान पर 14 दिन मुफ्त। ऐप स्टोर से कभी भी रद्द करें।',
+    ja: '価格はアプリで選択時に表示されます。すべての有料プランで 14 日間無料。ストアからいつでも解約できます。',
+    it: 'Il prezzo lo vedi nell\'app quando scegli. 14 giorni gratis su tutti i piani a pagamento. Disdici quando vuoi dallo store.',
+  },
+  'planes.free_name': {
+    es: 'Free', en: 'Free', ca: 'Free', gl: 'Free', eu: 'Free',
+    fr: 'Free', de: 'Free', pt: 'Free', zh: 'Free', hi: 'Free',
+    ja: 'Free', it: 'Free',
+  },
+  'planes.free_body': {
+    es: 'Para probar Tuvi sin compromiso.',
+    en: 'To try Tuvi with no strings attached.',
+    ca: 'Per provar Tuvi sense compromís.',
+    gl: 'Para probar Tuvi sen compromiso.',
+    eu: 'Tuvi konpromisorik gabe probatzeko.',
+    fr: 'Pour essayer Tuvi sans engagement.',
+    de: 'Um Tuvi unverbindlich auszuprobieren.',
+    pt: 'Para experimentar a Tuvi sem compromisso.',
+    zh: '无需承诺即可试用 Tuvi。',
+    hi: 'बिना किसी प्रतिबद्धता के Tuvi आज़माएँ।',
+    ja: '気軽に Tuvi を試したい方へ。',
+    it: 'Per provare Tuvi senza impegno.',
+  },
+  'planes.esencial_name': {
+    es: 'Esencial', en: 'Essential', ca: 'Esencial', gl: 'Esencial', eu: 'Esencial',
+    fr: 'Essentiel', de: 'Essential', pt: 'Esencial', zh: 'Essential', hi: 'Essential',
+    ja: 'Essential', it: 'Essential',
+  },
+  'planes.esencial_body': {
+    es: 'Para una asignatura.',
+    en: 'For one subject.',
+    ca: 'Per a una assignatura.',
+    gl: 'Para unha materia.',
+    eu: 'Ikasgai baterako.',
+    fr: 'Pour une seule matière.',
+    de: 'Für ein Fach.',
+    pt: 'Para uma disciplina.',
+    zh: '适用于一门科目。',
+    hi: 'एक विषय के लिए।',
+    ja: '1 教科向け。',
+    it: 'Per una materia.',
+  },
+  'planes.pro_name': {
+    es: 'Pro', en: 'Pro', ca: 'Pro', gl: 'Pro', eu: 'Pro',
+    fr: 'Pro', de: 'Pro', pt: 'Pro', zh: 'Pro', hi: 'Pro',
+    ja: 'Pro', it: 'Pro',
+  },
+  'planes.pro_body': {
+    es: 'Para varias asignaturas o uso frecuente.',
+    en: 'For several subjects or regular use.',
+    ca: 'Per a diverses assignatures o ús freqüent.',
+    gl: 'Para varias materias ou uso frecuente.',
+    eu: 'Hainbat ikasgairentzat edo erabilera maizerako.',
+    fr: 'Pour plusieurs matières ou un usage régulier.',
+    de: 'Für mehrere Fächer oder regelmäßige Nutzung.',
+    pt: 'Para várias disciplinas ou uso frequente.',
+    zh: '多门科目或经常使用。',
+    hi: 'कई विषयों या नियमित उपयोग के लिए।',
+    ja: '複数教科や日常的に使う方へ。',
+    it: 'Per più materie o uso frequente.',
+  },
+  'planes.premium_name': {
+    es: 'Premium', en: 'Premium', ca: 'Premium', gl: 'Premium', eu: 'Premium',
+    fr: 'Premium', de: 'Premium', pt: 'Premium', zh: 'Premium', hi: 'Premium',
+    ja: 'Premium', it: 'Premium',
+  },
+  'planes.premium_body': {
+    es: 'Sin pensar en el cap. Para profesores que generan a diario.',
+    en: 'No need to watch the cap. For teachers who generate daily.',
+    ca: 'Sense pensar en el límit. Per a professors que generen cada dia.',
+    gl: 'Sen pensar no límite. Para profesores que xeran a diario.',
+    eu: 'Mugaz arduratu gabe. Egunero sortzen duten irakasleentzat.',
+    fr: 'Sans te soucier du plafond. Pour les enseignants qui génèrent au quotidien.',
+    de: 'Ohne ans Limit zu denken. Für Lehrkräfte, die täglich erzeugen.',
+    pt: 'Sem pensar no limite. Para professores que geram diariamente.',
+    zh: '无需在意上限。适合每天生成内容的老师。',
+    hi: 'सीमा की चिंता किए बिना। उन शिक्षकों के लिए जो हर दिन कुछ बनाते हैं।',
+    ja: '上限を気にせずに。毎日生成する先生向け。',
+    it: 'Senza pensare al limite. Per chi genera ogni giorno.',
+  },
+  'planes.recommended_badge': {
+    es: 'Recomendado', en: 'Recommended', ca: 'Recomanat', gl: 'Recomendado',
+    eu: 'Gomendatua', fr: 'Recommandé', de: 'Empfohlen', pt: 'Recomendado',
+    zh: '推荐', hi: 'अनुशंसित', ja: 'おすすめ', it: 'Consigliato',
+  },
+  'planes.cap_packs': {
+    es: 'clases / mes', en: 'classes / month', ca: 'classes / mes', gl: 'clases / mes',
+    eu: 'klase / hila', fr: 'cours / mois', de: 'Stunden / Monat', pt: 'aulas / mês',
+    zh: '节课 / 月', hi: 'कक्षाएँ / माह', ja: '授業 / 月', it: 'lezioni / mese',
+  },
+  'planes.cap_materials': {
+    es: 'materiales', en: 'materials', ca: 'materials', gl: 'materiais',
+    eu: 'material', fr: 'supports', de: 'Materialien', pt: 'materiais',
+    zh: '教材', hi: 'सामग्रियाँ', ja: '教材', it: 'materiali',
+  },
+  'planes.cap_resources': {
+    es: 'recursos', en: 'resources', ca: 'recursos', gl: 'recursos',
+    eu: 'baliabide', fr: 'ressources', de: 'Ressourcen', pt: 'recursos',
+    zh: '资源', hi: 'संसाधन', ja: 'リソース', it: 'risorse',
+  },
+  'planes.footnote': {
+    es: 'El plan Free es permanente y los caps se reinician cada mes. Los planes de pago se gestionan desde la App Store o Google Play.',
+    en: 'The Free plan is permanent and the caps reset every month. Paid plans are managed from the App Store or Google Play.',
+    ca: 'El pla Free és permanent i els límits es reinicien cada mes. Els plans de pagament es gestionen des de l\'App Store o Google Play.',
+    gl: 'O plan Free é permanente e os límites reiníciánse cada mes. Os plans de pago xestiónanse desde a App Store ou Google Play.',
+    eu: 'Free plana iraunkorra da eta mugak hilero berrabiarazten dira. Ordainpeko planak App Store edo Google Play-tik kudeatzen dira.',
+    fr: 'Le plan Free est permanent et les plafonds se réinitialisent chaque mois. Les plans payants se gèrent depuis l\'App Store ou Google Play.',
+    de: 'Der Free-Plan ist dauerhaft und die Limits werden monatlich zurückgesetzt. Bezahlpläne werden über App Store oder Google Play verwaltet.',
+    pt: 'O plano Free é permanente e os limites reiniciam-se todos os meses. Os planos pagos gerem-se a partir da App Store ou Google Play.',
+    zh: 'Free 套餐永久免费，每月限额重置。付费套餐通过 App Store 或 Google Play 管理。',
+    hi: 'Free प्लान स्थायी है और हर महीने सीमाएँ रीसेट होती हैं। भुगतान वाले प्लान App Store या Google Play से प्रबंधित होते हैं।',
+    ja: 'Free プランは永続で、上限は毎月リセットされます。有料プランは App Store または Google Play から管理します。',
+    it: 'Il piano Free è permanente e i limiti si azzerano ogni mese. I piani a pagamento si gestiscono da App Store o Google Play.',
   },
 
   // ──────────────────────── FAQ TEASER ───────────────────────
@@ -933,6 +1099,152 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     hi: 'स्कूल 10 शैक्षणिक महीनों का वार्षिक अनुबंध करता है। पूरे स्टाफ़ को Premium प्लान और उसकी सीमाएँ मिलती हैं। स्कूल की विधि और संस्कृति, शिक्षकों द्वारा बनाई हर सामग्री में डिफ़ॉल्ट रूप से लागू होती है। बात करने के लिए info@tuvi.education पर लिखें।',
     ja: '学校は 10 学事月間の年間契約を結びます。教員全員が Premium プランとその上限を受け取ります。学校の教育方針と文化は、先生が作るすべての教材に既定で反映されます。詳細は info@tuvi.education までご連絡を。',
     it: 'La scuola firma un contratto annuale per 10 mesi scolastici. Tutto il corpo docente riceve il piano Premium con i suoi limiti. Metodologia e cultura del centro si applicano di default a tutto il materiale che i docenti generano. Scrivi a info@tuvi.education per parlarne.',
+  },
+
+  'faq.cat5_title': {
+    es: 'Planes', en: 'Plans', ca: 'Plans', gl: 'Plans', eu: 'Planak',
+    fr: 'Plans', de: 'Pläne', pt: 'Planos', zh: '套餐', hi: 'प्लान',
+    ja: 'プラン', it: 'Piani',
+  },
+  'faq.q_choose_plan': {
+    es: '¿Cuál plan me conviene?',
+    en: 'Which plan suits me best?',
+    ca: 'Quin pla em convé?',
+    gl: 'Que plan me convén?',
+    eu: 'Zein plan komeni zait?',
+    fr: 'Quel plan me convient ?',
+    de: 'Welcher Plan passt zu mir?',
+    pt: 'Qual plano me convém?',
+    zh: '哪个套餐最适合我？',
+    hi: 'मेरे लिए कौन सा प्लान सही है?',
+    ja: 'どのプランが合いますか？',
+    it: 'Quale piano fa per me?',
+  },
+  'faq.a_choose_plan': {
+    es: 'Si quieres probar Tuvi sin invertir, el Free. Si das una asignatura, Esencial. Si das varias asignaturas o lo usas a diario, Pro o Premium. Recuerda: durante los 14 días gratis puedes empezar por el plan que quieras y cambiarte antes de que termine la prueba si te queda grande o pequeño.',
+    en: 'If you just want to try Tuvi without paying, go Free. If you teach one subject, pick Essential. Several subjects or daily use → Pro or Premium. Remember: during the 14 free days you can start with whichever plan and switch before the trial ends if it doesn\'t fit.',
+    ca: 'Si vols provar Tuvi sense invertir, el Free. Si fas una assignatura, Esencial. Si fas diverses o l\'uses cada dia, Pro o Premium. Recorda: durant els 14 dies gratis pots començar pel pla que vulguis i canviar abans que acabi la prova si et queda gran o petit.',
+    gl: 'Se queres probar Tuvi sen investir, o Free. Se das unha materia, Esencial. Se das varias materias ou o usas a diario, Pro ou Premium. Lembra: durante os 14 días gratis podes comezar polo plan que queiras e cambiar antes de que termine a proba se che queda grande ou pequeno.',
+    eu: 'Tuvi inbertsiorik gabe probatu nahi baduzu, Free. Ikasgai bat ematen baduzu, Esencial. Hainbat ikasgai edo egunero erabiltzen baduzu, Pro edo Premium. Gogoratu: doako 14 egunetan nahi duzun planarekin has zaitezke eta probaldia amaitu aurretik aldatu, handiegi edo txikiegi geratzen bazaizu.',
+    fr: 'Pour essayer Tuvi sans payer, Free. Pour une seule matière, Essentiel. Plusieurs matières ou usage quotidien, Pro ou Premium. À noter : pendant les 14 jours gratuits tu peux commencer par n\'importe quel plan et changer avant la fin de l\'essai s\'il ne convient pas.',
+    de: 'Wenn du Tuvi nur ausprobieren willst, nimm Free. Bei einem Fach Essential. Bei mehreren Fächern oder täglicher Nutzung Pro oder Premium. Wichtig: in den 14 kostenlosen Tagen kannst du mit jedem Plan starten und vor Ablauf wechseln, falls er nicht passt.',
+    pt: 'Se queres só experimentar a Tuvi sem investir, o Free. Para uma disciplina, Essential. Para várias disciplinas ou uso diário, Pro ou Premium. Atenção: durante os 14 dias grátis podes começar com qualquer plano e mudar antes do fim da prova se não te servir.',
+    zh: '只是想试用 Tuvi 不花钱：选 Free。教一门课：Essential。教多门课或每天使用：Pro 或 Premium。提示：在 14 天免费试用期内，你可以从任意套餐开始，如果不合适在试用结束前切换即可。',
+    hi: 'अगर बिना खर्च के Tuvi आज़माना है, तो Free। एक विषय पढ़ाते हैं तो Essential। कई विषय या रोज़ इस्तेमाल करते हैं तो Pro या Premium। याद रखें: 14 दिन की मुफ्त अवधि में आप किसी भी प्लान से शुरू करके, ट्रायल खत्म होने से पहले बदल सकते हैं।',
+    ja: '投資なしで Tuvi を試したいなら Free。1 教科なら Essential。複数教科や毎日使うなら Pro か Premium。ヒント：14 日間の無料期間中はどのプランからでも始められ、合わなければトライアル終了前に変更できます。',
+    it: 'Se vuoi provare Tuvi senza spendere, Free. Se insegni una materia, Essential. Più materie o uso quotidiano, Pro o Premium. Ricorda: nei 14 giorni gratis puoi iniziare con qualsiasi piano e cambiare prima della fine della prova se non ti convince.',
+  },
+  'faq.q_change_plan': {
+    es: '¿Puedo cambiar de plan después de suscribirme?',
+    en: 'Can I switch plans after subscribing?',
+    ca: 'Puc canviar de pla després de subscriure\'m?',
+    gl: 'Podo cambiar de plan despois de subscribirme?',
+    eu: 'Plana alda dezaket harpidetza egin ondoren?',
+    fr: 'Puis-je changer de plan après m\'être abonné ?',
+    de: 'Kann ich nach dem Abonnieren den Plan wechseln?',
+    pt: 'Posso mudar de plano depois de subscrever?',
+    zh: '订阅后可以换套餐吗？',
+    hi: 'सब्सक्राइब करने के बाद प्लान बदल सकता हूँ?',
+    ja: '加入後にプラン変更はできますか？',
+    it: 'Posso cambiare piano dopo l\'iscrizione?',
+  },
+  'faq.a_change_plan': {
+    es: 'Sí, sin perder nada. Desde Ajustes → Suscripciones (iPhone) o Google Play → Suscripciones (Android), cambias entre Esencial, Pro y Premium. El upgrade se aplica al instante (Apple/Google prorratean el cobro). El downgrade se aplica al inicio del siguiente ciclo: hasta entonces sigues con los caps del plan actual.',
+    en: 'Yes, with no loss. From Settings → Subscriptions (iPhone) or Google Play → Subscriptions (Android) you switch between Essential, Pro and Premium. Upgrades apply instantly (Apple/Google prorate the charge). Downgrades apply at the start of the next cycle — until then you keep the current plan\'s caps.',
+    ca: 'Sí, sense perdre res. Des de Configuració → Subscripcions (iPhone) o Google Play → Subscripcions (Android) canvies entre Esencial, Pro i Premium. L\'upgrade s\'aplica a l\'instant (Apple/Google prorategen el cobrament). El downgrade s\'aplica al començament del següent cicle.',
+    gl: 'Si, sen perder nada. Desde Axustes → Subscricións (iPhone) ou Google Play → Subscricións (Android) cambias entre Esencial, Pro e Premium. O upgrade aplícase ao instante (Apple/Google prorratean o cobro). O downgrade aplícase ao comezo do seguinte ciclo.',
+    eu: 'Bai, ezer galdu gabe. Ezarpenak → Harpidetzak (iPhone) edo Google Play → Harpidetzak (Android) bidez Esencial, Pro eta Premium artean aldatzen duzu. Upgrade-a berehala aplikatzen da (Apple/Google-k kobrantza prorratatzen dute). Downgrade-a hurrengo zikloaren hasieran.',
+    fr: 'Oui, sans rien perdre. Depuis Réglages → Abonnements (iPhone) ou Google Play → Abonnements (Android), tu changes entre Essentiel, Pro et Premium. L\'upgrade s\'applique tout de suite (Apple/Google calculent au prorata). Le downgrade s\'applique au début du cycle suivant.',
+    de: 'Ja, ohne Verlust. Über Einstellungen → Abos (iPhone) oder Google Play → Abos (Android) wechselst du zwischen Essential, Pro und Premium. Upgrades greifen sofort (Apple/Google rechnen anteilig ab). Downgrades zum Beginn des nächsten Zyklus — bis dahin bleiben die aktuellen Limits.',
+    pt: 'Sim, sem perder nada. A partir de Definições → Subscrições (iPhone) ou Google Play → Subscrições (Android) mudas entre Essential, Pro e Premium. O upgrade aplica-se de imediato (Apple/Google fazem rateio). O downgrade aplica-se no início do ciclo seguinte.',
+    zh: '可以，不会有任何损失。在 iPhone「设置 → 订阅」或 Android「Google Play → 订阅」中切换 Essential、Pro 与 Premium。升级立即生效（Apple/Google 自动按比例计费）。降级在下一个计费周期开始时生效，期间保持原套餐的上限。',
+    hi: 'हाँ, बिना कुछ खोए। iPhone में Settings → Subscriptions या Android में Google Play → Subscriptions से Essential, Pro और Premium के बीच बदल सकते हैं। अपग्रेड तुरंत लागू होता है (Apple/Google रेटेबल बिलिंग करते हैं)। डाउनग्रेड अगले बिलिंग चक्र की शुरुआत में लागू होता है।',
+    ja: 'はい、何も失わずに変更できます。iPhone は「設定 → サブスクリプション」、Android は「Google Play → 定期購入」から Essential、Pro、Premium を切り替えられます。アップグレードは即時反映（Apple/Google が日割り）。ダウングレードは次の請求サイクル開始時に反映されます。',
+    it: 'Sì, senza perdere nulla. Da Impostazioni → Abbonamenti (iPhone) o Google Play → Abbonamenti (Android) cambi tra Essential, Pro e Premium. L\'upgrade è immediato (Apple/Google fanno il prorata). Il downgrade entra in vigore all\'inizio del ciclo successivo.',
+  },
+  'faq.q_short_mid_month': {
+    es: '¿Y si me quedo corto de cap a mitad de mes?',
+    en: 'What if I run out of cap mid-month?',
+    ca: 'I si em quedo curt de límit a mitja mes?',
+    gl: 'E se quedo curto de límite a mediados de mes?',
+    eu: 'Eta hilabete erdian muga agortzen bazait?',
+    fr: 'Et si je dépasse mon quota en milieu de mois ?',
+    de: 'Was, wenn das Limit mitten im Monat aufgebraucht ist?',
+    pt: 'E se ficar sem limite a meio do mês?',
+    zh: '月中如果用完上限怎么办？',
+    hi: 'अगर महीने के बीच में सीमा खत्म हो जाए तो?',
+    ja: '月の途中で上限に達したら？',
+    it: 'E se finisco il limite a metà mese?',
+  },
+  'faq.a_short_mid_month': {
+    es: 'Haces upgrade al plan superior desde la app y los caps se renuevan al instante con los del nuevo plan. Apple/Google prorratean la diferencia de precio del ciclo en curso.',
+    en: 'Upgrade to the next plan from the app and the caps reset right away to the new plan\'s. Apple/Google prorate the price difference for the current cycle.',
+    ca: 'Fas upgrade al pla superior des de l\'app i els límits es renoven a l\'instant amb els del nou pla. Apple/Google prorategen la diferència de preu del cicle en curs.',
+    gl: 'Fas upgrade ao plan superior desde a app e os límites renóvanse ao instante cos do novo plan. Apple/Google prorratean a diferenza de prezo do ciclo en curso.',
+    eu: 'Aplikaziotik goragoko planera upgrade egiten duzu eta mugak berehala berritzen dira plan berriarenekin. Apple/Google-k uneko zikloaren prezio diferentzia prorratatzen dute.',
+    fr: 'Tu fais un upgrade vers le plan supérieur depuis l\'app et les plafonds repartent à zéro avec ceux du nouveau plan. Apple/Google calculent au prorata la différence de prix du cycle en cours.',
+    de: 'Du machst über die App ein Upgrade zum nächsten Plan, die Limits werden sofort auf die des neuen Plans zurückgesetzt. Apple/Google rechnen die Differenz für den laufenden Zyklus anteilig ab.',
+    pt: 'Fazes upgrade para o plano superior a partir da app e os limites renovam-se de imediato com os do novo plano. A Apple/Google fazem rateio da diferença de preço do ciclo atual.',
+    zh: '在应用中升级到更高套餐，上限立即重置为新套餐的配额。Apple/Google 会按比例结算当前周期的差价。',
+    hi: 'ऐप से अगले प्लान पर अपग्रेड करें और सीमाएँ तुरंत नए प्लान वाली हो जाती हैं। मौजूदा चक्र के मूल्य अंतर का रेटेबल बिलिंग Apple/Google करते हैं।',
+    ja: 'アプリから上位プランへアップグレードすると、上限はすぐに新プランのものへ更新されます。現サイクルの差額は Apple/Google が日割り計算します。',
+    it: 'Fai un upgrade al piano superiore dall\'app e i limiti si rinnovano subito con quelli del nuovo piano. Apple/Google fanno il prorata della differenza di prezzo del ciclo in corso.',
+  },
+  'faq.q_annual': {
+    es: '¿Hay descuento si pago todo el año?',
+    en: 'Is there a discount for paying yearly?',
+    ca: 'Hi ha descompte si pago tot l\'any?',
+    gl: 'Hai desconto se pago todo o ano?',
+    eu: 'Urte osorako ordainketa eginez gero, deskonturik dago?',
+    fr: 'Y a-t-il une réduction pour le paiement annuel ?',
+    de: 'Gibt es einen Rabatt bei jährlicher Zahlung?',
+    pt: 'Há desconto se pagar o ano inteiro?',
+    zh: '按年付款有折扣吗？',
+    hi: 'सालाना भुगतान पर कोई छूट है?',
+    ja: '年払いに割引はありますか？',
+    it: 'C\'è uno sconto pagando tutto l\'anno?',
+  },
+  'faq.a_annual': {
+    es: 'Por ahora todos los planes son mensuales. El cobro se renueva automáticamente cada mes desde tu cuenta de App Store o Google Play.',
+    en: 'For now every plan is monthly. Billing renews automatically each month from your App Store or Google Play account.',
+    ca: 'Ara per ara tots els plans són mensuals. El cobrament es renova automàticament cada mes des del teu compte de l\'App Store o Google Play.',
+    gl: 'Por agora todos os plans son mensuais. O cobro renóvase automaticamente cada mes desde a túa conta de App Store ou Google Play.',
+    eu: 'Oraingoz plan guztiak hilekoak dira. Kobrantza automatikoki berritzen da hilero zure App Store edo Google Play kontutik.',
+    fr: 'Pour l\'instant, tous les plans sont mensuels. La facturation se renouvelle automatiquement chaque mois depuis ton compte App Store ou Google Play.',
+    de: 'Aktuell sind alle Pläne monatlich. Die Abrechnung erneuert sich jeden Monat automatisch über dein App-Store- oder Google-Play-Konto.',
+    pt: 'Por agora todos os planos são mensais. A cobrança renova-se automaticamente todos os meses a partir da tua conta da App Store ou Google Play.',
+    zh: '目前所有套餐均为月付，每月自动从你的 App Store 或 Google Play 账户续费。',
+    hi: 'फिलहाल सभी प्लान मासिक हैं। हर महीने आपकी App Store या Google Play खाते से शुल्क स्वतः नवीनीकृत होता है।',
+    ja: '現在はすべてのプランが月額です。App Store または Google Play のアカウントで毎月自動更新されます。',
+    it: 'Per ora tutti i piani sono mensili. Il rinnovo è automatico ogni mese dal tuo account App Store o Google Play.',
+  },
+  'faq.q_free_expires': {
+    es: '¿El plan Free caduca?',
+    en: 'Does the Free plan expire?',
+    ca: 'El pla Free caduca?',
+    gl: 'O plan Free caduca?',
+    eu: 'Free planak iraungi egiten du?',
+    fr: 'Le plan Free expire-t-il ?',
+    de: 'Läuft der Free-Plan ab?',
+    pt: 'O plano Free caduca?',
+    zh: 'Free 套餐会到期吗？',
+    hi: 'क्या Free प्लान समाप्त हो जाता है?',
+    ja: 'Free プランは期限がありますか？',
+    it: 'Il piano Free scade?',
+  },
+  'faq.a_free_expires': {
+    es: 'No. Es permanente. Si nunca quieres pasar a un plan de pago, sigues con Free para siempre. Los caps mensuales del Free se reinician cada mes natural.',
+    en: 'No. It\'s permanent. If you never want to upgrade, you stay on Free forever. The Free monthly caps reset at the start of each calendar month.',
+    ca: 'No. És permanent. Si mai vols passar a un pla de pagament, segueixes amb el Free per sempre. Els límits mensuals del Free es reinicien cada mes natural.',
+    gl: 'Non. É permanente. Se nunca queres pasar a un plan de pago, segues co Free para sempre. Os límites mensuais do Free reiníciánse cada mes natural.',
+    eu: 'Ez. Iraunkorra da. Ordainpeko planera pasatu nahi ez baduzu, Free planarekin betiko jarrai zaitezke. Free-ren hileko mugak hilabete natural bakoitzean berrabiarazten dira.',
+    fr: 'Non. Il est permanent. Si tu ne veux jamais passer à un plan payant, tu restes en Free pour toujours. Les plafonds mensuels du Free se réinitialisent au début de chaque mois civil.',
+    de: 'Nein. Er ist dauerhaft. Wenn du nie auf einen Bezahlplan wechseln willst, bleibst du für immer Free. Die monatlichen Free-Limits werden jeden Kalendermonat zurückgesetzt.',
+    pt: 'Não. É permanente. Se nunca quiseres passar a um plano pago, ficas com o Free para sempre. Os limites mensais do Free reiniciam-se ao início de cada mês civil.',
+    zh: '不会。Free 永久免费。如果你永远不想升级到付费套餐，可以一直使用 Free。Free 的月度上限在每个自然月开始时重置。',
+    hi: 'नहीं। यह स्थायी है। अगर आप कभी भी भुगतान वाला प्लान नहीं लेना चाहते, तो हमेशा Free पर रह सकते हैं। Free की मासिक सीमाएँ हर कैलेंडर माह की शुरुआत में रीसेट होती हैं।',
+    ja: 'いいえ。永続です。有料プランへ移行しないなら、ずっと Free のままで使えます。Free の月次上限は毎月 1 日にリセットされます。',
+    it: 'No. È permanente. Se non vuoi mai passare a un piano a pagamento, resti su Free per sempre. I limiti mensili del Free si azzerano all\'inizio di ogni mese di calendario.',
   },
 
   'faq.bottom_cta': {

@@ -1,0 +1,84 @@
+---
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+// Caps v4 (pricing-decisions 2026-04-28). Ratio lineal 1:2:3 entre tiers de pago.
+// NO se muestran precios — viven en stores y paywall in-app.
+const PLANS = [
+  {
+    nameKey: 'planes.free_name' as const,
+    bodyKey: 'planes.free_body' as const,
+    caps: { packs: 5, materials: 8, resources: 10 },
+    highlighted: false,
+  },
+  {
+    nameKey: 'planes.esencial_name' as const,
+    bodyKey: 'planes.esencial_body' as const,
+    caps: { packs: 15, materials: 25, resources: 30 },
+    highlighted: false,
+  },
+  {
+    nameKey: 'planes.pro_name' as const,
+    bodyKey: 'planes.pro_body' as const,
+    caps: { packs: 30, materials: 50, resources: 60 },
+    highlighted: true,
+  },
+  {
+    nameKey: 'planes.premium_name' as const,
+    bodyKey: 'planes.premium_body' as const,
+    caps: { packs: 45, materials: 75, resources: 90 },
+    highlighted: false,
+  },
+];
+---
+
+<section class="max-w-landing mx-auto px-6 py-12 md:py-16">
+  <h2 class="text-2xl md:text-3xl font-bold text-tuvi-text-primary text-center max-w-3xl mx-auto">
+    {t('planes.title', locale)}
+  </h2>
+  <p class="mt-4 text-tuvi-text-secondary text-center max-w-2xl mx-auto leading-relaxed">
+    {t('planes.subtitle', locale)}
+  </p>
+
+  <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+    {PLANS.map((plan) => (
+      <div
+        class={`rounded-xl p-5 bg-white relative flex flex-col ${
+          plan.highlighted
+            ? 'border-2 border-tuvi-primary shadow-lg'
+            : 'border border-tuvi-border'
+        }`}
+      >
+        {plan.highlighted && (
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-tuvi-primary text-white text-xs font-semibold px-3 py-1 rounded-full whitespace-nowrap">
+            {t('planes.recommended_badge', locale)}
+          </span>
+        )}
+        <p class="text-lg font-bold text-tuvi-text-primary">
+          {t(plan.nameKey, locale)}
+        </p>
+        <p class="mt-2 text-sm text-tuvi-text-secondary leading-relaxed flex-1">
+          {t(plan.bodyKey, locale)}
+        </p>
+        <div class="mt-5 pt-4 border-t border-tuvi-border">
+          <p class="flex items-baseline gap-1.5">
+            <span class="text-3xl font-bold text-tuvi-primary leading-none">{plan.caps.packs}</span>
+            <span class="text-sm text-tuvi-text-secondary">{t('planes.cap_packs', locale)}</span>
+          </p>
+          <p class="mt-2 text-sm text-tuvi-text-secondary">
+            {plan.caps.materials} {t('planes.cap_materials', locale)} · {plan.caps.resources} {t('planes.cap_resources', locale)}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p class="mt-8 text-sm text-tuvi-text-secondary text-center max-w-3xl mx-auto leading-relaxed">
+    {t('planes.footnote', locale)}
+  </p>
+</section>

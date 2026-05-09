@@ -8,6 +8,7 @@ import EjeCurriculos from '../components/EjeCurriculos.astro';
 import EjeIdiomas from '../components/EjeIdiomas.astro';
 import EjePersonalizacion from '../components/EjePersonalizacion.astro';
 import EjeCentros from '../components/EjeCentros.astro';
+import EjePlanes from '../components/EjePlanes.astro';
 import FaqTeaser from '../components/FaqTeaser.astro';
 import LocaleSelector from '../components/LocaleSelector.astro';
 import Footer from '../components/Footer.astro';
@@ -32,6 +33,7 @@ Astro.response.headers.set('Vary', 'Accept-Language, CF-IPCountry');
   <EjeIdiomas locale={locale} />
   <EjePersonalizacion locale={locale} />
   <EjeCentros locale={locale} />
+  <EjePlanes locale={locale} />
   <FaqTeaser locale={locale} />
   <Footer locale={locale} />
 </Base>
