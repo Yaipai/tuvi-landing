@@ -12,6 +12,8 @@ const { locale } = Astro.props;
   class="border-t border-tuvi-border mt-16 py-8 text-center text-sm text-tuvi-text-secondary"
 >
   <nav class="space-x-4 mb-2">
+    <a href="/faq" class="hover:text-tuvi-primary">{t('nav.faq', locale)}</a>
+    <span>·</span>
     <a href={`/${locale}/legal/terms/`} class="hover:text-tuvi-primary"
       >{t('footer.terms', locale)}</a
     >

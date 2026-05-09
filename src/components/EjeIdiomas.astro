@@ -1,0 +1,30 @@
+---
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+
+const LANG_TAGS = ['ES', 'EN', 'CA', 'GL', 'EU', 'FR', 'DE', 'PT', 'IT', 'ZH', 'HI', 'JA'];
+---
+
+<section class="max-w-landing mx-auto px-6 py-12 md:py-16">
+  <div class="text-center max-w-3xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold text-tuvi-text-primary">
+      {t('eje2.title', locale)}
+    </h2>
+    <p class="mt-4 text-tuvi-text-secondary leading-relaxed">
+      {t('eje2.body', locale)}
+    </p>
+  </div>
+
+  <ul class="mt-8 flex flex-wrap gap-2 justify-center max-w-2xl mx-auto">
+    {LANG_TAGS.map((tag) => (
+      <li class="px-3 py-1 bg-tuvi-primary-light text-tuvi-primary-dark rounded-md text-sm font-mono">
+        {tag}
+      </li>
+    ))}
+  </ul>
+</section>
