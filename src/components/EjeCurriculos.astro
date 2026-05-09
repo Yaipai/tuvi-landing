@@ -1,0 +1,46 @@
+---
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<section class="max-w-landing mx-auto px-6 py-12 md:py-16">
+  <h2 class="text-2xl md:text-3xl font-bold text-tuvi-text-primary text-center max-w-3xl mx-auto">
+    {t('eje1.title', locale)}
+  </h2>
+
+  <div class="mt-8 grid gap-6 md:grid-cols-3">
+    <div class="rounded-xl border border-tuvi-border p-5 bg-white">
+      <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
+        {t('eje1.es_label', locale)}
+      </p>
+      <p class="mt-2 text-tuvi-text-primary leading-relaxed">
+        {t('eje1.es_body', locale)}
+      </p>
+    </div>
+    <div class="rounded-xl border border-tuvi-border p-5 bg-white">
+      <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
+        {t('eje1.uk_label', locale)}
+      </p>
+      <p class="mt-2 text-tuvi-text-primary leading-relaxed">
+        {t('eje1.uk_body', locale)}
+      </p>
+    </div>
+    <div class="rounded-xl border border-tuvi-border p-5 bg-white">
+      <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
+        {t('eje1.intl_label', locale)}
+      </p>
+      <p class="mt-2 text-tuvi-text-primary leading-relaxed">
+        {t('eje1.intl_body', locale)}
+      </p>
+    </div>
+  </div>
+
+  <p class="mt-6 text-sm italic text-tuvi-text-secondary text-center max-w-3xl mx-auto">
+    {t('eje1.example', locale)}
+  </p>
+</section>

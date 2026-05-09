@@ -1,0 +1,45 @@
+---
+import { t } from '../i18n/ui-strings';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<section class="max-w-landing mx-auto px-6 py-12 md:py-16">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide text-center">
+      {t('faq_teaser.title', locale)}
+    </p>
+    <ul class="mt-6 space-y-3 text-tuvi-text-primary">
+      <li class="flex gap-3">
+        <span class="text-tuvi-primary font-bold mt-0.5">→</span>
+        <a href="/faq#trial" class="hover:text-tuvi-primary underline-offset-4 hover:underline">
+          {t('faq_teaser.q1', locale)}
+        </a>
+      </li>
+      <li class="flex gap-3">
+        <span class="text-tuvi-primary font-bold mt-0.5">→</span>
+        <a href="/faq#fit" class="hover:text-tuvi-primary underline-offset-4 hover:underline">
+          {t('faq_teaser.q2', locale)}
+        </a>
+      </li>
+      <li class="flex gap-3">
+        <span class="text-tuvi-primary font-bold mt-0.5">→</span>
+        <a href="/faq#schools" class="hover:text-tuvi-primary underline-offset-4 hover:underline">
+          {t('faq_teaser.q3', locale)}
+        </a>
+      </li>
+    </ul>
+    <div class="mt-8 text-center">
+      <a
+        href="/faq"
+        class="inline-block px-5 py-2 border border-tuvi-primary text-tuvi-primary rounded-md font-medium hover:bg-tuvi-primary hover:text-white transition-colors"
+      >
+        {t('faq_teaser.cta', locale)} →
+      </a>
+    </div>
+  </div>
+</section>
