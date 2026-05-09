@@ -1,0 +1,40 @@
+---
+import { t } from '../i18n/ui-strings';
+import StoreBadges from './StoreBadges.astro';
+import type { Locale } from '../i18n/locales';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<section class="max-w-landing mx-auto px-6 py-16 md:py-24 text-center min-h-[70vh] flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center gap-3">
+    <img src="/tuvi-logo.svg" alt="Tuvi" class="h-20 w-20 md:h-24 md:w-24" />
+    <span
+      class="text-3xl md:text-4xl font-extrabold text-tuvi-primary"
+      style="font-family: var(--font-heading);"
+    >
+      Tuvi
+    </span>
+  </div>
+
+  <h1 class="text-3xl md:text-5xl font-bold leading-tight text-tuvi-text-primary mt-10 max-w-2xl">
+    {t('coming.title', locale)}
+  </h1>
+
+  <p class="mt-6 text-lg text-tuvi-text-secondary max-w-xl">
+    {t('coming.body', locale)}
+  </p>
+
+  <div class="mt-10">
+    <StoreBadges locale={locale} />
+  </div>
+
+  <p class="mt-8 text-sm text-tuvi-text-secondary">
+    <a href="mailto:info@tuvi.education" class="hover:text-tuvi-primary underline-offset-2 hover:underline">
+      {t('coming.contact', locale)}
+    </a>
+  </p>
+</section>

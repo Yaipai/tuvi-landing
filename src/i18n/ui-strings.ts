@@ -3,6 +3,9 @@ import type { Locale } from './locales';
 export type UIStringKey =
   | 'nav.greeting'
   | 'nav.faq'
+  | 'coming.title'
+  | 'coming.body'
+  | 'coming.contact'
   | 'hero.headline'
   | 'hero.subhead'
   | 'hero.cta_line'
@@ -98,6 +101,50 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     es: 'Preguntas', en: 'FAQ', ca: 'Preguntes', gl: 'Preguntas', eu: 'Galderak',
     fr: 'Questions', de: 'Fragen', pt: 'Perguntas', zh: '常见问题', hi: 'सवाल',
     ja: 'よくある質問', it: 'Domande',
+  },
+
+  // ──────────────────────── COMING SOON ────────────────────────
+  'coming.title': {
+    es: 'Volvemos pronto.',
+    en: 'Back soon.',
+    ca: 'Tornem aviat.',
+    gl: 'Volvemos pronto.',
+    eu: 'Laster itzuliko gara.',
+    fr: 'De retour très bientôt.',
+    de: 'Wir sind bald zurück.',
+    pt: 'Voltamos em breve.',
+    zh: '我们很快回来。',
+    hi: 'हम जल्द लौटेंगे।',
+    ja: 'まもなく戻ります。',
+    it: 'Torniamo presto.',
+  },
+  'coming.body': {
+    es: 'Estamos puliendo la página. La app móvil sigue funcionando con normalidad.',
+    en: 'We\'re polishing the website. The mobile app is running as usual.',
+    ca: 'Estem polint la pàgina. L\'app mòbil segueix funcionant amb normalitat.',
+    gl: 'Estamos puíndo a páxina. A app móbil segue a funcionar con normalidade.',
+    eu: 'Webgunea txukuntzen ari gara. Mugikorreko aplikazioak ohi bezala dabil.',
+    fr: 'Nous peaufinons le site. L\'app mobile fonctionne normalement.',
+    de: 'Wir feilen an der Website. Die mobile App läuft wie gewohnt.',
+    pt: 'Estamos a polir a página. A app móvel continua a funcionar normalmente.',
+    zh: '我们正在打磨网站。移动应用照常运行。',
+    hi: 'हम वेबसाइट को बेहतर बना रहे हैं। मोबाइल ऐप सामान्य रूप से चल रहा है।',
+    ja: 'ウェブサイトを調整中です。モバイルアプリは通常どおり動作しています。',
+    it: 'Stiamo rifinendo il sito. L\'app mobile funziona normalmente.',
+  },
+  'coming.contact': {
+    es: '¿Quieres contactarnos? Escríbenos a info@tuvi.education',
+    en: 'Want to reach out? Email info@tuvi.education',
+    ca: 'Vols contactar-nos? Escriu-nos a info@tuvi.education',
+    gl: 'Queres contactarnos? Escríbenos a info@tuvi.education',
+    eu: 'Kontaktuan jarri nahi duzu? Idatzi info@tuvi.education-era',
+    fr: 'Une question ? Écrivez-nous à info@tuvi.education',
+    de: 'Möchtest du uns erreichen? Schreib an info@tuvi.education',
+    pt: 'Queres contactar-nos? Escreve para info@tuvi.education',
+    zh: '想联系我们？请发邮件至 info@tuvi.education',
+    hi: 'संपर्क करना चाहते हैं? info@tuvi.education पर लिखें',
+    ja: 'お問い合わせは info@tuvi.education まで',
+    it: 'Vuoi contattarci? Scrivi a info@tuvi.education',
   },
 
   // ──────────────────────────── HERO ────────────────────────────
