@@ -1,15 +1,14 @@
 ---
 export const prerender = false;
 
-// ⚠️ MODO MANTENIMIENTO (9-may-2026)
-// La home está sirviendo SOLO una página "Volvemos pronto" mientras pulimos.
-// El trabajo completo (4 ejes + FAQ teaser) sigue en git en commits previos
-// y en los componentes Eje*.astro / FaqTeaser.astro intactos. Para revertir:
-// `git revert <hash de este commit>` y redeploy con wrangler.
-// Pendientes a aplicar antes de reabrir: ver memo project_landing_coming_soon.
-
 import Base from '../layouts/Base.astro';
-import ComingSoon from '../components/ComingSoon.astro';
+import Hero from '../components/Hero.astro';
+import Carousel from '../components/Carousel.astro';
+import EjeCurriculos from '../components/EjeCurriculos.astro';
+import EjeIdiomas from '../components/EjeIdiomas.astro';
+import EjePersonalizacion from '../components/EjePersonalizacion.astro';
+import EjeCentros from '../components/EjeCentros.astro';
+import FaqTeaser from '../components/FaqTeaser.astro';
 import LocaleSelector from '../components/LocaleSelector.astro';
 import Footer from '../components/Footer.astro';
 import { pickLocale } from '../i18n/pickLocale';
@@ -27,6 +26,12 @@ Astro.response.headers.set('Vary', 'Accept-Language, CF-IPCountry');
     <span class="font-bold text-xl text-tuvi-primary">Tuvi</span>
     <LocaleSelector current={locale} />
   </header>
-  <ComingSoon locale={locale} />
+  <Hero locale={locale} />
+  <Carousel />
+  <EjeCurriculos locale={locale} />
+  <EjeIdiomas locale={locale} />
+  <EjePersonalizacion locale={locale} />
+  <EjeCentros locale={locale} />
+  <FaqTeaser locale={locale} />
   <Footer locale={locale} />
 </Base>

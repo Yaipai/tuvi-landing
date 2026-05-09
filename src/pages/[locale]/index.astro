@@ -1,7 +1,12 @@
 ---
-// ⚠️ MODO MANTENIMIENTO (9-may-2026) — ver comentario en src/pages/index.astro
 import Base from '../../layouts/Base.astro';
-import ComingSoon from '../../components/ComingSoon.astro';
+import Hero from '../../components/Hero.astro';
+import Carousel from '../../components/Carousel.astro';
+import EjeCurriculos from '../../components/EjeCurriculos.astro';
+import EjeIdiomas from '../../components/EjeIdiomas.astro';
+import EjePersonalizacion from '../../components/EjePersonalizacion.astro';
+import EjeCentros from '../../components/EjeCentros.astro';
+import FaqTeaser from '../../components/FaqTeaser.astro';
 import LocaleSelector from '../../components/LocaleSelector.astro';
 import Footer from '../../components/Footer.astro';
 import { SUPPORTED_LOCALES, type Locale } from '../../i18n/locales';
@@ -18,6 +23,12 @@ const locale = Astro.params.locale as Locale;
     <span class="font-bold text-xl text-tuvi-primary">Tuvi</span>
     <LocaleSelector current={locale} />
   </header>
-  <ComingSoon locale={locale} />
+  <Hero locale={locale} />
+  <Carousel />
+  <EjeCurriculos locale={locale} />
+  <EjeIdiomas locale={locale} />
+  <EjePersonalizacion locale={locale} />
+  <EjeCentros locale={locale} />
+  <FaqTeaser locale={locale} />
   <Footer locale={locale} />
 </Base>
