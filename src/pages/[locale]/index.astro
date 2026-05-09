@@ -8,6 +8,7 @@ import EjePersonalizacion from '../../components/EjePersonalizacion.astro';
 import EjeCentros from '../../components/EjeCentros.astro';
 import EjePlanes from '../../components/EjePlanes.astro';
 import FaqTeaser from '../../components/FaqTeaser.astro';
+import Acknowledgements from '../../components/Acknowledgements.astro';
 import LocaleSelector from '../../components/LocaleSelector.astro';
 import Footer from '../../components/Footer.astro';
 import { SUPPORTED_LOCALES, type Locale } from '../../i18n/locales';
@@ -32,5 +33,6 @@ const locale = Astro.params.locale as Locale;
   <EjeCentros locale={locale} />
   <EjePlanes locale={locale} />
   <FaqTeaser locale={locale} />
+  <Acknowledgements locale={locale} />
   <Footer locale={locale} />
 </Base>

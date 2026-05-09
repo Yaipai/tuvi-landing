@@ -27,6 +27,13 @@ export type UIStringKey =
   | 'eje3.title'
   | 'eje3.body'
   | 'eje3.recipes_label'
+  | 'eje3.recipes_heading'
+  | 'eje3.recipe_pbl'
+  | 'eje3.recipe_socratic'
+  | 'eje3.recipe_design'
+  | 'eje3.recipe_workshop'
+  | 'eje3.recipe_gamification'
+  | 'eje3.recipe_assessment'
   | 'eje3.school_method'
   | 'eje4.title'
   | 'eje4.bullet1'
@@ -48,6 +55,9 @@ export type UIStringKey =
   | 'planes.cap_materials'
   | 'planes.cap_resources'
   | 'planes.footnote'
+  | 'acks.heading'
+  | 'acks.attribution'
+  | 'acks.disclaimer'
   | 'faq.cat5_title'
   | 'faq.q_choose_plan'
   | 'faq.a_choose_plan'
@@ -242,18 +252,18 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     zh: '英国', hi: 'यूनाइटेड किंगडम', ja: 'イギリス', it: 'Regno Unito',
   },
   'eje1.uk_body': {
-    es: 'National Curriculum (KS1-KS4) y A-Level (post-16).',
-    en: 'National Curriculum (KS1-KS4) and A-Level (post-16).',
-    ca: 'National Curriculum (KS1-KS4) i A-Level (post-16).',
-    gl: 'National Curriculum (KS1-KS4) e A-Level (post-16).',
-    eu: 'National Curriculum (KS1-KS4) eta A-Level (16 urtetik aurrera).',
-    fr: 'National Curriculum (KS1-KS4) et A-Level (post-16).',
-    de: 'National Curriculum (KS1-KS4) und A-Level (post-16).',
-    pt: 'National Curriculum (KS1-KS4) e A-Level (pós-16).',
-    zh: '英国国家课程（KS1-KS4）和 A-Level（16 岁后）。',
-    hi: 'National Curriculum (KS1-KS4) और A-Level (16+ वर्ष)।',
-    ja: 'National Curriculum（KS1〜KS4）と A-Level（16 歳以降）。',
-    it: 'National Curriculum (KS1-KS4) e A-Level (post-16).',
+    es: 'National Curriculum (KS1-KS4) y material inspirado en A-Level (post-16).',
+    en: 'National Curriculum (KS1-KS4) and material inspired by A-Level (post-16).',
+    ca: 'National Curriculum (KS1-KS4) i material inspirat en A-Level (post-16).',
+    gl: 'National Curriculum (KS1-KS4) e material inspirado en A-Level (post-16).',
+    eu: 'National Curriculum (KS1-KS4) eta A-Level-en oinarritutako materiala (16 urtetik aurrera).',
+    fr: 'National Curriculum (KS1-KS4) et supports inspirés du A-Level (post-16).',
+    de: 'National Curriculum (KS1-KS4) und Material, inspiriert von A-Level (post-16).',
+    pt: 'National Curriculum (KS1-KS4) e material inspirado em A-Level (pós-16).',
+    zh: '英国国家课程（KS1-KS4），以及以 A-Level（16 岁后）为参考的教材。',
+    hi: 'National Curriculum (KS1-KS4) और A-Level (16+ वर्ष) से प्रेरित सामग्री।',
+    ja: 'National Curriculum（KS1〜KS4）と、A-Level（16 歳以降）に基づいた教材。',
+    it: 'National Curriculum (KS1-KS4) e materiale ispirato all\'A-Level (post-16).',
   },
   'eje1.au_label': {
     es: 'Australia', en: 'Australia', ca: 'Austràlia', gl: 'Australia',
@@ -299,18 +309,18 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     zh: '国际课程', hi: 'अंतरराष्ट्रीय', ja: '国際', it: 'Internazionale',
   },
   'eje1.intl_body': {
-    es: 'Cambridge IGCSE y A-Level.',
-    en: 'Cambridge IGCSE and A-Level.',
-    ca: 'Cambridge IGCSE i A-Level.',
-    gl: 'Cambridge IGCSE e A-Level.',
-    eu: 'Cambridge IGCSE eta A-Level.',
-    fr: 'Cambridge IGCSE et A-Level.',
-    de: 'Cambridge IGCSE und A-Level.',
-    pt: 'Cambridge IGCSE e A-Level.',
-    zh: 'Cambridge IGCSE 和 A-Level。',
-    hi: 'Cambridge IGCSE और A-Level।',
-    ja: 'Cambridge IGCSE と A-Level。',
-    it: 'Cambridge IGCSE e A-Level.',
+    es: 'Inspirado en Cambridge IGCSE y A-Level.',
+    en: 'Inspired by Cambridge IGCSE and A-Level.',
+    ca: 'Inspirat en Cambridge IGCSE i A-Level.',
+    gl: 'Inspirado en Cambridge IGCSE e A-Level.',
+    eu: 'Cambridge IGCSE eta A-Level-en oinarrituta.',
+    fr: 'Inspiré de Cambridge IGCSE et A-Level.',
+    de: 'Inspiriert von Cambridge IGCSE und A-Level.',
+    pt: 'Inspirado em Cambridge IGCSE e A-Level.',
+    zh: '以 Cambridge IGCSE 和 A-Level 为参考。',
+    hi: 'Cambridge IGCSE और A-Level से प्रेरित।',
+    ja: 'Cambridge IGCSE および A-Level に基づいた構成。',
+    it: 'Ispirato a Cambridge IGCSE e A-Level.',
   },
   'eje1.example': {
     es: 'Ejemplo: prepara una sesión sobre la Reconquista para Historia de 2.º de ESO. Tuvi parte del bloque curricular oficial de tu comunidad y aplica tu metodología.',
@@ -385,6 +395,60 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     hi: 'हर शिक्षक अलग तरीके से पढ़ाता है। Tuvi को परियोजना-आधारित इतिहास और सुकराती नोटबुक के बीच अंतर पता है, और तदनुसार सामग्री तैयार करता है।',
     ja: '先生ごとに教え方は違います。Tuvi はプロジェクト型学習で歴史を教えるのと、ソクラテス式ノートで教えるのとの違いを理解し、それに合わせて教材を作ります。',
     it: 'Ogni insegnante insegna diversamente. Tuvi capisce la differenza tra fare Storia con l\'Apprendimento Basato su Progetti o con un quaderno Socratico, e genera il materiale di conseguenza.',
+  },
+  'eje3.recipes_heading': {
+    es: '6 recetas pedagógicas',
+    en: '6 pedagogical recipes',
+    ca: '6 receptes pedagògiques',
+    gl: '6 receitas pedagóxicas',
+    eu: '6 errezeta pedagogiko',
+    fr: '6 recettes pédagogiques',
+    de: '6 pädagogische Rezepte',
+    pt: '6 receitas pedagógicas',
+    zh: '6 种教学方案',
+    hi: '6 शिक्षण विधियाँ',
+    ja: '6 つの教育レシピ',
+    it: '6 ricette pedagogiche',
+  },
+  'eje3.recipe_pbl': {
+    es: 'Aprendizaje Basado en Proyectos',
+    en: 'Project-Based Learning',
+    ca: 'Aprenentatge Basat en Projectes',
+    gl: 'Aprendizaxe Baseada en Proxectos',
+    eu: 'Proiektuetan Oinarritutako Ikaskuntza',
+    fr: 'Apprentissage Par Projet',
+    de: 'Projektbasiertes Lernen',
+    pt: 'Aprendizagem Baseada em Projetos',
+    zh: '项目式学习',
+    hi: 'परियोजना-आधारित अधिगम',
+    ja: 'プロジェクト型学習',
+    it: 'Apprendimento Basato su Progetti',
+  },
+  'eje3.recipe_socratic': {
+    es: 'Socrático', en: 'Socratic', ca: 'Socràtic', gl: 'Socrático',
+    eu: 'Sokratikoa', fr: 'Socratique', de: 'Sokratisch', pt: 'Socrático',
+    zh: '苏格拉底法', hi: 'सुकराती', ja: 'ソクラテス式', it: 'Socratico',
+  },
+  'eje3.recipe_design': {
+    es: 'Design Thinking', en: 'Design Thinking', ca: 'Design Thinking',
+    gl: 'Design Thinking', eu: 'Design Thinking', fr: 'Design Thinking',
+    de: 'Design Thinking', pt: 'Design Thinking', zh: '设计思维',
+    hi: 'डिज़ाइन थिंकिंग', ja: 'デザイン思考', it: 'Design Thinking',
+  },
+  'eje3.recipe_workshop': {
+    es: 'Workshop', en: 'Workshop', ca: 'Workshop', gl: 'Workshop',
+    eu: 'Workshop', fr: 'Atelier', de: 'Workshop', pt: 'Workshop',
+    zh: '工作坊', hi: 'वर्कशॉप', ja: 'ワークショップ', it: 'Workshop',
+  },
+  'eje3.recipe_gamification': {
+    es: 'Gamificación', en: 'Gamification', ca: 'Gamificació', gl: 'Gamificación',
+    eu: 'Jokarazketa', fr: 'Gamification', de: 'Gamification', pt: 'Gamificação',
+    zh: '游戏化', hi: 'गेमिफिकेशन', ja: 'ゲーミフィケーション', it: 'Gamification',
+  },
+  'eje3.recipe_assessment': {
+    es: 'Evaluación', en: 'Assessment', ca: 'Avaluació', gl: 'Avaliación',
+    eu: 'Ebaluazioa', fr: 'Évaluation', de: 'Evaluation', pt: 'Avaliação',
+    zh: '评估', hi: 'मूल्यांकन', ja: '評価', it: 'Valutazione',
   },
   'eje3.recipes_label': {
     es: '6 recetas pedagógicas: Aprendizaje Basado en Proyectos · Socrático · Design Thinking · Workshop · Gamificación · Evaluación.',
@@ -625,6 +689,50 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     hi: 'Free प्लान स्थायी है और हर महीने सीमाएँ रीसेट होती हैं। भुगतान वाले प्लान App Store या Google Play से प्रबंधित होते हैं।',
     ja: 'Free プランは永続で、上限は毎月リセットされます。有料プランは App Store または Google Play から管理します。',
     it: 'Il piano Free è permanente e i limiti si azzerano ogni mese. I piani a pagamento si gestiscono da App Store o Google Play.',
+  },
+
+  // ──────────────────────── ACKNOWLEDGEMENTS ───────────────────────
+  'acks.heading': {
+    es: 'Reconocimientos y marcas',
+    en: 'Credits and trademarks',
+    ca: 'Reconeixements i marques',
+    gl: 'Recoñecementos e marcas',
+    eu: 'Aitorpenak eta markak',
+    fr: 'Crédits et marques',
+    de: 'Quellenangaben und Marken',
+    pt: 'Créditos e marcas',
+    zh: '致谢与商标',
+    hi: 'क्रेडिट और ट्रेडमार्क',
+    ja: 'クレジットと商標',
+    it: 'Crediti e marchi',
+  },
+  'acks.attribution': {
+    es: 'Datos del National Curriculum (UK) extraídos de Oak National Academy bajo CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distribuido bajo CC BY 4.0. LOMLOE: documentos oficiales del Ministerio de Educación y consejerías autonómicas. Indicazioni Nazionali: Ministero dell\'Istruzione e del Merito.',
+    en: 'UK National Curriculum data sourced from Oak National Academy under CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distributed under CC BY 4.0. LOMLOE: official documents from the Spanish Ministry of Education and regional authorities. Indicazioni Nazionali: Italian Ministero dell\'Istruzione e del Merito.',
+    ca: 'Dades del National Curriculum (UK) extretes d\'Oak National Academy sota CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distribuït sota CC BY 4.0. LOMLOE: documents oficials del Ministeri d\'Educació espanyol i conselleries autonòmiques. Indicazioni Nazionali: Ministero dell\'Istruzione e del Merito italià.',
+    gl: 'Datos do National Curriculum (UK) extraídos de Oak National Academy baixo CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distribuído baixo CC BY 4.0. LOMLOE: documentos oficiais do Ministerio de Educación español e consellerías autonómicas. Indicazioni Nazionali: Ministero dell\'Istruzione e del Merito italiano.',
+    eu: 'National Curriculum (UK) datuak Oak National Academy-tik atera ditugu, CC BY-NC-SA 4.0 lizentziapean. Australian Curriculum © ACARA, CC BY 4.0 lizentziapean. LOMLOE: Espainiako Hezkuntza Ministerioaren eta autonomia erkidegoetako sailen dokumentu ofizialak. Indicazioni Nazionali: Italiako Ministero dell\'Istruzione e del Merito.',
+    fr: 'Données du National Curriculum (UK) issues d\'Oak National Academy sous licence CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distribué sous CC BY 4.0. LOMLOE : documents officiels du Ministère de l\'Éducation espagnol et des communautés autonomes. Indicazioni Nazionali : Ministero dell\'Istruzione e del Merito italien.',
+    de: 'UK National Curriculum-Daten von Oak National Academy unter CC BY-NC-SA 4.0. Australian Curriculum © ACARA, lizenziert unter CC BY 4.0. LOMLOE: offizielle Dokumente des spanischen Bildungsministeriums und der autonomen Regionen. Indicazioni Nazionali: italienisches Ministero dell\'Istruzione e del Merito.',
+    pt: 'Dados do National Curriculum (UK) extraídos da Oak National Academy ao abrigo de CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distribuído sob CC BY 4.0. LOMLOE: documentos oficiais do Ministério da Educação espanhol e conselheirias autonómicas. Indicazioni Nazionali: Ministero dell\'Istruzione e del Merito italiano.',
+    zh: '英国 National Curriculum 数据来源于 Oak National Academy（CC BY-NC-SA 4.0 许可）。Australian Curriculum © ACARA，依 CC BY 4.0 许可分发。LOMLOE：西班牙教育部及各自治区当局的官方文件。Indicazioni Nazionali：意大利 Ministero dell\'Istruzione e del Merito。',
+    hi: 'UK National Curriculum डेटा Oak National Academy से CC BY-NC-SA 4.0 के तहत लिया गया। Australian Curriculum © ACARA, CC BY 4.0 के तहत वितरित। LOMLOE: स्पैनिश शिक्षा मंत्रालय और क्षेत्रीय प्राधिकरणों के आधिकारिक दस्तावेज़। Indicazioni Nazionali: इटली का Ministero dell\'Istruzione e del Merito।',
+    ja: 'UK National Curriculum のデータは Oak National Academy（CC BY-NC-SA 4.0）に基づいています。Australian Curriculum © ACARA、CC BY 4.0 のもとで配布。LOMLOE: スペイン教育省および各自治州当局の公式文書。Indicazioni Nazionali: イタリアの Ministero dell\'Istruzione e del Merito。',
+    it: 'Dati del National Curriculum (UK) tratti da Oak National Academy con licenza CC BY-NC-SA 4.0. Australian Curriculum © ACARA, distribuito con licenza CC BY 4.0. LOMLOE: documenti ufficiali del Ministero dell\'Istruzione spagnolo e delle comunità autonome. Indicazioni Nazionali: Ministero dell\'Istruzione e del Merito italiano.',
+  },
+  'acks.disclaimer': {
+    es: 'Tuvi no está afiliada a Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR ni a ninguno de los ministerios mencionados. Las marcas Cambridge, IGCSE, A-Level y otras pertenecen a sus respectivos titulares y se citan a efectos descriptivos.',
+    en: 'Tuvi is not affiliated with Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR, or any of the ministries mentioned. The trademarks Cambridge, IGCSE, A-Level and others belong to their respective owners and are referenced for descriptive purposes.',
+    ca: 'Tuvi no està afiliada a Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR ni a cap dels ministeris esmentats. Les marques Cambridge, IGCSE, A-Level i altres pertanyen als seus respectius titulars i es citen amb finalitat descriptiva.',
+    gl: 'Tuvi non está afiliada a Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR nin a ningún dos ministerios mencionados. As marcas Cambridge, IGCSE, A-Level e outras pertencen aos seus respectivos titulares e cítanse con fins descritivos.',
+    eu: 'Tuvi ez dago Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR edo aipatutako ministeriorekin afiliatua. Cambridge, IGCSE, A-Level eta beste markak haien jabe direnenak dira eta deskribapen-helburuekin aipatzen dira.',
+    fr: 'Tuvi n\'est affilié ni à Oak National Academy, ni à ACARA, ni à Cambridge Assessment International Education, ni à AQA, Pearson Edexcel ou OCR, ni aux ministères mentionnés. Les marques Cambridge, IGCSE, A-Level et autres appartiennent à leurs titulaires respectifs et sont citées à des fins descriptives.',
+    de: 'Tuvi ist weder mit Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR noch mit einem der genannten Ministerien verbunden. Die Marken Cambridge, IGCSE, A-Level und andere gehören ihren jeweiligen Inhabern und werden zu beschreibenden Zwecken erwähnt.',
+    pt: 'A Tuvi não está afiliada à Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR nem a qualquer um dos ministérios mencionados. As marcas Cambridge, IGCSE, A-Level e outras pertencem aos seus respectivos titulares e são citadas para fins descritivos.',
+    zh: 'Tuvi 与 Oak National Academy、ACARA、Cambridge Assessment International Education、AQA、Pearson Edexcel、OCR 及上述任何部委均无任何隶属关系。Cambridge、IGCSE、A-Level 等商标归各自所有者所有，仅用于描述目的。',
+    hi: 'Tuvi का Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR या उल्लिखित किसी भी मंत्रालय से कोई संबंध नहीं है। Cambridge, IGCSE, A-Level व अन्य ट्रेडमार्क उनके संबंधित मालिकों के हैं और केवल वर्णनात्मक उद्देश्य से उल्लिखित किए गए हैं।',
+    ja: 'Tuvi は Oak National Academy、ACARA、Cambridge Assessment International Education、AQA、Pearson Edexcel、OCR、および本ページで言及される省庁とは一切提携していません。Cambridge、IGCSE、A-Level などの商標はそれぞれの所有者に帰属し、説明目的でのみ言及しています。',
+    it: 'Tuvi non è affiliata a Oak National Academy, ACARA, Cambridge Assessment International Education, AQA, Pearson Edexcel, OCR né ad alcuno dei ministeri citati. I marchi Cambridge, IGCSE, A-Level e altri appartengono ai rispettivi titolari e sono citati a scopo descrittivo.',
   },
 
   // ──────────────────────── FAQ TEASER ───────────────────────
@@ -893,18 +1001,18 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     it: 'E se insegno il curriculum britannico o Cambridge?',
   },
   'faq.a_uk_cambridge': {
-    es: 'Cubrimos el National Curriculum británico de KS1 a KS4 y Cambridge IGCSE + A-Level. Lo usan colegios británicos en España (NABSS) y escuelas internacionales que combinan currículo local con currículo internacional.',
-    en: 'We cover the UK National Curriculum from KS1 to KS4 and Cambridge IGCSE and A-Level. Used by British schools in Spain (NABSS) and international schools that combine local and international curricula.',
-    ca: 'Cobrim el National Curriculum britànic de KS1 a KS4 i Cambridge IGCSE i A-Level. L\'utilitzen escoles britàniques a Espanya (NABSS) i escoles internacionals que combinen currículum local amb internacional.',
-    gl: 'Cubrimos o National Curriculum británico de KS1 a KS4 e Cambridge IGCSE e A-Level. Úsano escolas británicas en España (NABSS) e escolas internacionais que combinan currículo local con internacional.',
-    eu: 'KS1etik KS4ra arteko Britainia Handiko National Curriculum-a eta Cambridge IGCSE eta A-Level estaltzen ditugu. Espainiako eskola britaniarrek (NABSS) eta tokiko eta nazioarteko curriculumak konbinatzen dituzten nazioarteko eskolek erabiltzen dute.',
-    fr: 'Nous couvrons le National Curriculum britannique de KS1 à KS4 et Cambridge IGCSE et A-Level. Utilisé par les écoles britanniques en Espagne (NABSS) et les écoles internationales qui combinent programmes locaux et internationaux.',
-    de: 'Wir decken das britische National Curriculum von KS1 bis KS4 sowie Cambridge IGCSE und A-Level ab. Im Einsatz an britischen Schulen in Spanien (NABSS) und an internationalen Schulen, die lokale und internationale Lehrpläne kombinieren.',
-    pt: 'Cobrimos o National Curriculum britânico de KS1 a KS4 e Cambridge IGCSE e A-Level. Usado por escolas britânicas em Espanha (NABSS) e escolas internacionais que combinam currículo local com internacional.',
-    zh: '我们覆盖英国 National Curriculum（KS1 到 KS4）以及 Cambridge IGCSE 和 A-Level。被在西班牙的英国学校（NABSS）以及结合本地与国际课程的国际学校使用。',
-    hi: 'हम UK National Curriculum (KS1 से KS4) और Cambridge IGCSE व A-Level को कवर करते हैं। स्पेन में ब्रिटिश स्कूल (NABSS) और स्थानीय व अंतरराष्ट्रीय पाठ्यक्रम मिलाने वाले अंतरराष्ट्रीय स्कूल इसका इस्तेमाल करते हैं।',
-    ja: 'イギリスの National Curriculum（KS1 〜 KS4）と Cambridge IGCSE・A-Level に対応。スペインのブリティッシュスクール（NABSS）や、現地と国際カリキュラムを併用するインターナショナルスクールで利用されています。',
-    it: 'Copriamo il National Curriculum britannico dal KS1 al KS4 e Cambridge IGCSE e A-Level. Lo usano scuole britanniche in Spagna (NABSS) e scuole internazionali che combinano curriculum locale e internazionale.',
+    es: 'Cubrimos el National Curriculum británico de KS1 a KS4 y A-Level. A nivel internacional, generamos material inspirado en Cambridge IGCSE y A-Level. Lo usan colegios británicos en España (NABSS) y escuelas internacionales que combinan currículo local con internacional. Tuvi no está afiliada a Cambridge Assessment International Education.',
+    en: 'We cover the UK National Curriculum from KS1 to KS4 and A-Level. Internationally, we produce material inspired by Cambridge IGCSE and A-Level. Used by British schools in Spain (NABSS) and international schools that combine local and international curricula. Tuvi is not affiliated with Cambridge Assessment International Education.',
+    ca: 'Cobrim el National Curriculum britànic de KS1 a KS4 i A-Level. A nivell internacional, generem material inspirat en Cambridge IGCSE i A-Level. L\'utilitzen escoles britàniques a Espanya (NABSS) i escoles internacionals que combinen currículum local amb internacional. Tuvi no està afiliada a Cambridge Assessment International Education.',
+    gl: 'Cubrimos o National Curriculum británico de KS1 a KS4 e A-Level. A nivel internacional, xeramos material inspirado en Cambridge IGCSE e A-Level. Úsano escolas británicas en España (NABSS) e escolas internacionais que combinan currículo local con internacional. Tuvi non está afiliada a Cambridge Assessment International Education.',
+    eu: 'KS1etik KS4ra arteko Britainia Handiko National Curriculum-a eta A-Level estaltzen ditugu. Nazioartean, Cambridge IGCSE eta A-Level-en oinarritutako materiala sortzen dugu. Espainiako eskola britaniarrek (NABSS) eta nazioarteko eskolek erabiltzen dute. Tuvi ez dago Cambridge Assessment International Education-erekin afiliatua.',
+    fr: 'Nous couvrons le National Curriculum britannique de KS1 à KS4 et A-Level. À l\'international, nous générons des supports inspirés de Cambridge IGCSE et A-Level. Utilisé par les écoles britanniques en Espagne (NABSS) et les écoles internationales qui combinent programmes locaux et internationaux. Tuvi n\'est pas affilié à Cambridge Assessment International Education.',
+    de: 'Wir decken das britische National Curriculum von KS1 bis KS4 sowie A-Level ab. International produzieren wir Material, das von Cambridge IGCSE und A-Level inspiriert ist. Im Einsatz an britischen Schulen in Spanien (NABSS) und an internationalen Schulen, die lokale und internationale Lehrpläne kombinieren. Tuvi ist nicht mit Cambridge Assessment International Education verbunden.',
+    pt: 'Cobrimos o National Curriculum britânico de KS1 a KS4 e A-Level. A nível internacional, geramos material inspirado em Cambridge IGCSE e A-Level. Usado por escolas britânicas em Espanha (NABSS) e escolas internacionais que combinam currículo local com internacional. A Tuvi não está afiliada à Cambridge Assessment International Education.',
+    zh: '我们覆盖英国 National Curriculum（KS1 到 KS4）和 A-Level。在国际层面，我们生成以 Cambridge IGCSE 和 A-Level 为参考的教材。被在西班牙的英国学校（NABSS）以及结合本地与国际课程的国际学校使用。Tuvi 与 Cambridge Assessment International Education 无任何隶属关系。',
+    hi: 'हम UK National Curriculum (KS1 से KS4) और A-Level को कवर करते हैं। अंतरराष्ट्रीय स्तर पर हम Cambridge IGCSE और A-Level से प्रेरित सामग्री बनाते हैं। स्पेन में ब्रिटिश स्कूल (NABSS) और स्थानीय व अंतरराष्ट्रीय पाठ्यक्रम मिलाने वाले अंतरराष्ट्रीय स्कूल इसका उपयोग करते हैं। Tuvi का Cambridge Assessment International Education से कोई संबंध नहीं है।',
+    ja: 'イギリスの National Curriculum（KS1 〜 KS4）と A-Level に対応。国際向けには Cambridge IGCSE と A-Level に基づいた教材を作成しています。スペインのブリティッシュスクール（NABSS）や、現地と国際カリキュラムを併用するインターナショナルスクールで利用されています。Tuvi は Cambridge Assessment International Education と提携関係にはありません。',
+    it: 'Copriamo il National Curriculum britannico dal KS1 al KS4 e A-Level. A livello internazionale, generiamo materiale ispirato a Cambridge IGCSE e A-Level. Lo usano scuole britanniche in Spagna (NABSS) e scuole internazionali che combinano curriculum locale e internazionale. Tuvi non è affiliata a Cambridge Assessment International Education.',
   },
   'faq.q_languages': {
     es: '¿En qué idiomas genera material?', en: 'What languages does it generate in?',
