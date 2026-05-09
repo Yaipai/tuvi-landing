@@ -15,6 +15,10 @@ export type UIStringKey =
   | 'eje1.es_body'
   | 'eje1.uk_label'
   | 'eje1.uk_body'
+  | 'eje1.au_label'
+  | 'eje1.au_body'
+  | 'eje1.it_label'
+  | 'eje1.it_body'
   | 'eje1.intl_label'
   | 'eje1.intl_body'
   | 'eje1.example'
@@ -212,18 +216,56 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     zh: '英国', hi: 'यूनाइटेड किंगडम', ja: 'イギリス', it: 'Regno Unito',
   },
   'eje1.uk_body': {
-    es: 'National Curriculum de KS1 a KS4.',
-    en: 'National Curriculum from KS1 through KS4.',
-    ca: 'National Curriculum de KS1 a KS4.',
-    gl: 'National Curriculum de KS1 a KS4.',
-    eu: 'KS1etik KS4ra arteko National Curriculum-a.',
-    fr: 'National Curriculum de KS1 à KS4.',
-    de: 'National Curriculum von KS1 bis KS4.',
-    pt: 'National Curriculum de KS1 a KS4.',
-    zh: '英国国家课程 KS1 至 KS4。',
-    hi: 'National Curriculum, KS1 से KS4 तक।',
-    ja: 'National Curriculum、KS1 から KS4 まで。',
-    it: 'National Curriculum dal KS1 al KS4.',
+    es: 'National Curriculum (KS1-KS4) y A-Level (post-16).',
+    en: 'National Curriculum (KS1-KS4) and A-Level (post-16).',
+    ca: 'National Curriculum (KS1-KS4) i A-Level (post-16).',
+    gl: 'National Curriculum (KS1-KS4) e A-Level (post-16).',
+    eu: 'National Curriculum (KS1-KS4) eta A-Level (16 urtetik aurrera).',
+    fr: 'National Curriculum (KS1-KS4) et A-Level (post-16).',
+    de: 'National Curriculum (KS1-KS4) und A-Level (post-16).',
+    pt: 'National Curriculum (KS1-KS4) e A-Level (pós-16).',
+    zh: '英国国家课程（KS1-KS4）和 A-Level（16 岁后）。',
+    hi: 'National Curriculum (KS1-KS4) और A-Level (16+ वर्ष)।',
+    ja: 'National Curriculum（KS1〜KS4）と A-Level（16 歳以降）。',
+    it: 'National Curriculum (KS1-KS4) e A-Level (post-16).',
+  },
+  'eje1.au_label': {
+    es: 'Australia', en: 'Australia', ca: 'Austràlia', gl: 'Australia',
+    eu: 'Australia', fr: 'Australie', de: 'Australien', pt: 'Austrália',
+    zh: '澳大利亚', hi: 'ऑस्ट्रेलिया', ja: 'オーストラリア', it: 'Australia',
+  },
+  'eje1.au_body': {
+    es: 'Australian Curriculum (ACARA) de Foundation a Año 12.',
+    en: 'Australian Curriculum (ACARA) from Foundation to Year 12.',
+    ca: 'Australian Curriculum (ACARA) de Foundation a Year 12.',
+    gl: 'Australian Curriculum (ACARA) de Foundation a Year 12.',
+    eu: 'Australian Curriculum (ACARA), Foundation-etik 12. mailara.',
+    fr: 'Australian Curriculum (ACARA) de Foundation à Year 12.',
+    de: 'Australian Curriculum (ACARA) von Foundation bis Year 12.',
+    pt: 'Australian Curriculum (ACARA) da Foundation ao Year 12.',
+    zh: '澳大利亚课程（ACARA），从 Foundation 至 Year 12。',
+    hi: 'Australian Curriculum (ACARA), Foundation से Year 12 तक।',
+    ja: 'Australian Curriculum（ACARA）、Foundation から Year 12 まで。',
+    it: 'Australian Curriculum (ACARA) dalla Foundation alla Year 12.',
+  },
+  'eje1.it_label': {
+    es: 'Italia', en: 'Italy', ca: 'Itàlia', gl: 'Italia', eu: 'Italia',
+    fr: 'Italie', de: 'Italien', pt: 'Itália', zh: '意大利', hi: 'इटली',
+    ja: 'イタリア', it: 'Italia',
+  },
+  'eje1.it_body': {
+    es: 'Indicazioni Nazionali del Ministero dell\'Istruzione italiano.',
+    en: 'Indicazioni Nazionali — the Italian Ministry of Education curriculum.',
+    ca: 'Indicazioni Nazionali del Ministeri d\'Educació italià.',
+    gl: 'Indicazioni Nazionali do Ministerio de Educación italiano.',
+    eu: 'Italiako Hezkuntza Ministerioaren Indicazioni Nazionali.',
+    fr: 'Indicazioni Nazionali — programme du ministère italien de l\'Éducation.',
+    de: 'Indicazioni Nazionali — Lehrplan des italienischen Bildungsministeriums.',
+    pt: 'Indicazioni Nazionali do Ministério da Educação italiano.',
+    zh: '意大利教育部的 Indicazioni Nazionali 课程。',
+    hi: 'इटली के शिक्षा मंत्रालय का Indicazioni Nazionali पाठ्यक्रम।',
+    ja: 'イタリア教育省の Indicazioni Nazionali カリキュラム。',
+    it: 'Indicazioni Nazionali del Ministero dell\'Istruzione e del Merito.',
   },
   'eje1.intl_label': {
     es: 'Internacional', en: 'International', ca: 'Internacional', gl: 'Internacional',
@@ -936,8 +978,8 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     ja: 'Tuvi — 教師向けアプリ', it: 'Tuvi — l\'app per insegnanti',
   },
   'meta.description': {
-    es: 'Tuvi prepara sesiones, materiales y exámenes alineados al currículo oficial. España (LOMLOE), UK National Curriculum y Cambridge IGCSE/A-Level. 12 idiomas. App móvil iOS y Android.',
-    en: 'Tuvi builds lessons, materials and exams aligned with the official curriculum. Spain (LOMLOE), UK National Curriculum and Cambridge IGCSE/A-Level. 12 languages. Mobile app for iOS and Android.',
+    es: 'Tuvi prepara sesiones, materiales y exámenes alineados al currículo oficial. España, Reino Unido, Australia, Italia y Cambridge International. 12 idiomas. App móvil iOS y Android.',
+    en: 'Tuvi builds lessons, materials and exams aligned with the official curriculum. Spain, UK, Australia, Italy and Cambridge International. 12 languages. Mobile app for iOS and Android.',
     ca: 'Tuvi prepara sessions, materials i exàmens alineats al currículum oficial. Espanya (LOMLOE), UK National Curriculum i Cambridge IGCSE. 12 idiomes. App mòbil iOS i Android.',
     gl: 'Tuvi prepara sesións, materiais e exames aliñados ao currículo oficial. España (LOMLOE), UK National Curriculum e Cambridge IGCSE. 12 idiomas. App móbil iOS e Android.',
     eu: 'Tuvik saioak, materialak eta azterketak prestatzen ditu curriculum ofizialari lotuta. Espainia (LOMLOE), UK National Curriculum eta Cambridge IGCSE. 12 hizkuntza. Aplikazio mugikorra iOS eta Androiderako.',

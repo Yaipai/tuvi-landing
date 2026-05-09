@@ -6,6 +6,16 @@ interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
+
+// Banderas del país de origen del currículo (no del idioma).
+// 🌍 globo para Cambridge International — currículo sin país de origen.
+const CURRICULA = [
+  { flag: '🇪🇸', labelKey: 'eje1.es_label' as const, bodyKey: 'eje1.es_body' as const },
+  { flag: '🇬🇧', labelKey: 'eje1.uk_label' as const, bodyKey: 'eje1.uk_body' as const },
+  { flag: '🇦🇺', labelKey: 'eje1.au_label' as const, bodyKey: 'eje1.au_body' as const },
+  { flag: '🇮🇹', labelKey: 'eje1.it_label' as const, bodyKey: 'eje1.it_body' as const },
+  { flag: '🌍', labelKey: 'eje1.intl_label' as const, bodyKey: 'eje1.intl_body' as const },
+];
 ---
 
 <section class="max-w-landing mx-auto px-6 py-12 md:py-16">
@@ -13,34 +23,21 @@ const { locale } = Astro.props;
     {t('eje1.title', locale)}
   </h2>
 
-  <div class="mt-8 grid gap-6 md:grid-cols-3">
-    <div class="rounded-xl border border-tuvi-border p-5 bg-white">
-      <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
-        {t('eje1.es_label', locale)}
-      </p>
-      <p class="mt-2 text-tuvi-text-primary leading-relaxed">
-        {t('eje1.es_body', locale)}
-      </p>
-    </div>
-    <div class="rounded-xl border border-tuvi-border p-5 bg-white">
-      <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
-        {t('eje1.uk_label', locale)}
-      </p>
-      <p class="mt-2 text-tuvi-text-primary leading-relaxed">
-        {t('eje1.uk_body', locale)}
-      </p>
-    </div>
-    <div class="rounded-xl border border-tuvi-border p-5 bg-white">
-      <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
-        {t('eje1.intl_label', locale)}
-      </p>
-      <p class="mt-2 text-tuvi-text-primary leading-relaxed">
-        {t('eje1.intl_body', locale)}
-      </p>
-    </div>
+  <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+    {CURRICULA.map((c) => (
+      <div class="rounded-xl border border-tuvi-border p-5 bg-white">
+        <p class="flex items-center gap-2 text-sm font-semibold text-tuvi-primary uppercase tracking-wide">
+          <span class="text-xl leading-none" aria-hidden="true">{c.flag}</span>
+          <span>{t(c.labelKey, locale)}</span>
+        </p>
+        <p class="mt-2 text-tuvi-text-primary leading-relaxed">
+          {t(c.bodyKey, locale)}
+        </p>
+      </div>
+    ))}
   </div>
 
-  <p class="mt-6 text-sm italic text-tuvi-text-secondary text-center max-w-3xl mx-auto">
+  <p class="mt-8 text-sm italic text-tuvi-text-secondary text-center max-w-3xl mx-auto">
     {t('eje1.example', locale)}
   </p>
 </section>
