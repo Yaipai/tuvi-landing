@@ -26,14 +26,20 @@ export type UIStringKey =
   | 'eje2.body'
   | 'eje3.title'
   | 'eje3.body'
-  | 'eje3.recipes_label'
   | 'eje3.recipes_heading'
+  | 'eje3.recipes_more'
   | 'eje3.recipe_pbl'
-  | 'eje3.recipe_socratic'
-  | 'eje3.recipe_design'
-  | 'eje3.recipe_workshop'
+  | 'eje3.recipe_flipped'
   | 'eje3.recipe_gamification'
-  | 'eje3.recipe_assessment'
+  | 'eje3.recipe_design'
+  | 'eje3.recipe_socratic'
+  | 'eje3.recipe_cooperative'
+  | 'eje3.recipe_challenge'
+  | 'eje3.recipe_workshop'
+  | 'eje3.recipe_debate'
+  | 'eje3.recipe_montessori'
+  | 'eje3.recipe_reggio'
+  | 'eje3.recipe_ignatian'
   | 'eje3.school_method'
   | 'eje4.title'
   | 'eje4.bullet1'
@@ -397,18 +403,32 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     it: 'Ogni insegnante insegna diversamente. Tuvi capisce la differenza tra fare Storia con l\'Apprendimento Basato su Progetti o con un quaderno Socratico, e genera il materiale di conseguenza.',
   },
   'eje3.recipes_heading': {
-    es: '6 recetas pedagógicas',
-    en: '6 pedagogical recipes',
-    ca: '6 receptes pedagògiques',
-    gl: '6 receitas pedagóxicas',
-    eu: '6 errezeta pedagogiko',
-    fr: '6 recettes pédagogiques',
-    de: '6 pädagogische Rezepte',
-    pt: '6 receitas pedagógicas',
-    zh: '6 种教学方案',
-    hi: '6 शिक्षण विधियाँ',
-    ja: '6 つの教育レシピ',
-    it: '6 ricette pedagogiche',
+    es: 'Más de 16 metodologías pedagógicas',
+    en: '16+ pedagogical methodologies',
+    ca: 'Més de 16 metodologies pedagògiques',
+    gl: 'Máis de 16 metodoloxías pedagóxicas',
+    eu: '16 metodologia pedagogiko baino gehiago',
+    fr: 'Plus de 16 méthodologies pédagogiques',
+    de: 'Über 16 pädagogische Methoden',
+    pt: 'Mais de 16 metodologias pedagógicas',
+    zh: '超过 16 种教学方法',
+    hi: '16 से अधिक शैक्षणिक पद्धतियाँ',
+    ja: '16 種類以上の教育メソッド',
+    it: 'Oltre 16 metodologie pedagogiche',
+  },
+  'eje3.recipes_more': {
+    es: 'y más: Direct Instruction, Estaciones de aprendizaje, Waldorf, STEAM, Educación Emocional, IB, Pensamiento Crítico…',
+    en: 'and more: Direct Instruction, Learning Stations, Waldorf, STEAM, Emotional Education, IB, Critical Thinking…',
+    ca: 'i més: Direct Instruction, Estacions d\'aprenentatge, Waldorf, STEAM, Educació Emocional, IB, Pensament Crític…',
+    gl: 'e máis: Direct Instruction, Estacións de aprendizaxe, Waldorf, STEAM, Educación Emocional, IB, Pensamento Crítico…',
+    eu: 'eta gehiago: Direct Instruction, Ikaskuntza geltokiak, Waldorf, STEAM, Hezkuntza Emozionala, IB, Pentsamendu Kritikoa…',
+    fr: 'et plus : Direct Instruction, Stations d\'apprentissage, Waldorf, STEAM, Éducation émotionnelle, IB, Pensée critique…',
+    de: 'und mehr: Direct Instruction, Lernstationen, Waldorf, STEAM, Emotionale Bildung, IB, Kritisches Denken…',
+    pt: 'e mais: Direct Instruction, Estações de aprendizagem, Waldorf, STEAM, Educação Emocional, IB, Pensamento Crítico…',
+    zh: '还有更多：直接教学、学习工作站、华德福、STEAM、情绪教育、IB、批判性思维等。',
+    hi: 'और भी: Direct Instruction, Learning Stations, Waldorf, STEAM, भावनात्मक शिक्षा, IB, आलोचनात्मक चिंतन इत्यादि।',
+    ja: 'ほかに：Direct Instruction、学習ステーション、Waldorf、STEAM、感情教育、IB、批判的思考など。',
+    it: 'e altre: Direct Instruction, Stazioni di apprendimento, Waldorf, STEAM, Educazione Emotiva, IB, Pensiero Critico…',
   },
   'eje3.recipe_pbl': {
     es: 'Aprendizaje Basado en Proyectos',
@@ -445,38 +465,60 @@ export const UI_STRINGS: Record<UIStringKey, Record<Locale, string>> = {
     eu: 'Jokarazketa', fr: 'Gamification', de: 'Gamification', pt: 'Gamificação',
     zh: '游戏化', hi: 'गेमिफिकेशन', ja: 'ゲーミフィケーション', it: 'Gamification',
   },
-  'eje3.recipe_assessment': {
-    es: 'Evaluación', en: 'Assessment', ca: 'Avaluació', gl: 'Avaliación',
-    eu: 'Ebaluazioa', fr: 'Évaluation', de: 'Evaluation', pt: 'Avaliação',
-    zh: '评估', hi: 'मूल्यांकन', ja: '評価', it: 'Valutazione',
+  'eje3.recipe_flipped': {
+    es: 'Aula Invertida', en: 'Flipped Classroom', ca: 'Aula Invertida', gl: 'Aula Invertida',
+    eu: 'Ikasgela Iraulia', fr: 'Classe Inversée', de: 'Flipped Classroom', pt: 'Sala de Aula Invertida',
+    zh: '翻转课堂', hi: 'फ्लिप्ड क्लासरूम', ja: '反転授業', it: 'Flipped Classroom',
   },
-  'eje3.recipes_label': {
-    es: '6 recetas pedagógicas: Aprendizaje Basado en Proyectos · Socrático · Design Thinking · Workshop · Gamificación · Evaluación.',
-    en: '6 pedagogical recipes: Project-Based Learning · Socratic · Design Thinking · Workshop · Gamification · Assessment.',
-    ca: '6 receptes pedagògiques: Aprenentatge Basat en Projectes · Socràtic · Design Thinking · Workshop · Gamificació · Avaluació.',
-    gl: '6 receitas pedagóxicas: Aprendizaxe Baseada en Proxectos · Socrático · Design Thinking · Workshop · Gamificación · Avaliación.',
-    eu: '6 errezeta pedagogiko: Proiektuetan Oinarritutako Ikaskuntza · Sokratikoa · Design Thinking · Workshop · Jokarazketa · Ebaluazioa.',
-    fr: '6 recettes pédagogiques : Apprentissage Par Projet · Socratique · Design Thinking · Atelier · Gamification · Évaluation.',
-    de: '6 pädagogische Rezepte: Projektbasiertes Lernen · Sokratisch · Design Thinking · Workshop · Gamification · Evaluation.',
-    pt: '6 receitas pedagógicas: Aprendizagem Baseada em Projetos · Socrático · Design Thinking · Workshop · Gamificação · Avaliação.',
-    zh: '6 种教学方案：项目式学习 · 苏格拉底法 · 设计思维 · 工作坊 · 游戏化 · 评估。',
-    hi: '6 शिक्षण विधियाँ: परियोजना-आधारित अधिगम · सुकराती · डिज़ाइन थिंकिंग · वर्कशॉप · गेमिफिकेशन · मूल्यांकन।',
-    ja: '6 つの教育レシピ：プロジェクト型学習・ソクラテス式・デザイン思考・ワークショップ・ゲーミフィケーション・評価。',
-    it: '6 ricette pedagogiche: Apprendimento Basato su Progetti · Socratico · Design Thinking · Workshop · Gamification · Valutazione.',
+  'eje3.recipe_cooperative': {
+    es: 'Aprendizaje Cooperativo', en: 'Cooperative Learning', ca: 'Aprenentatge Cooperatiu',
+    gl: 'Aprendizaxe Cooperativa', eu: 'Ikaskuntza Kooperatiboa', fr: 'Apprentissage Coopératif',
+    de: 'Kooperatives Lernen', pt: 'Aprendizagem Cooperativa', zh: '合作学习',
+    hi: 'सहकारी अधिगम', ja: '協同学習', it: 'Apprendimento Cooperativo',
+  },
+  'eje3.recipe_challenge': {
+    es: 'Aprendizaje Basado en Retos', en: 'Challenge-Based Learning',
+    ca: 'Aprenentatge Basat en Reptes', gl: 'Aprendizaxe Baseada en Retos',
+    eu: 'Erronketan Oinarritutako Ikaskuntza', fr: 'Apprentissage Par Défis',
+    de: 'Challenge-Based Learning', pt: 'Aprendizagem Baseada em Desafios',
+    zh: '挑战式学习', hi: 'चुनौती-आधारित अधिगम', ja: 'チャレンジ型学習',
+    it: 'Apprendimento Basato su Sfide',
+  },
+  'eje3.recipe_debate': {
+    es: 'Debate', en: 'Debate', ca: 'Debat', gl: 'Debate',
+    eu: 'Eztabaida', fr: 'Débat', de: 'Debatte', pt: 'Debate',
+    zh: '辩论', hi: 'वाद-विवाद', ja: 'ディベート', it: 'Dibattito',
+  },
+  'eje3.recipe_montessori': {
+    es: 'Montessori', en: 'Montessori', ca: 'Montessori', gl: 'Montessori',
+    eu: 'Montessori', fr: 'Montessori', de: 'Montessori', pt: 'Montessori',
+    zh: '蒙台梭利', hi: 'मॉन्टेसरी', ja: 'モンテッソーリ', it: 'Montessori',
+  },
+  'eje3.recipe_reggio': {
+    es: 'Reggio Emilia', en: 'Reggio Emilia', ca: 'Reggio Emilia', gl: 'Reggio Emilia',
+    eu: 'Reggio Emilia', fr: 'Reggio Emilia', de: 'Reggio Emilia', pt: 'Reggio Emilia',
+    zh: '瑞吉欧·艾米利亚', hi: 'रेज्जो एमिलिया', ja: 'レッジョ・エミリア', it: 'Reggio Emilia',
+  },
+  'eje3.recipe_ignatian': {
+    es: 'Pedagogía Ignaciana', en: 'Ignatian Pedagogy', ca: 'Pedagogia Ignasiana',
+    gl: 'Pedagoxía Ignaciana', eu: 'Pedagogia Ignaziarra', fr: 'Pédagogie Ignatienne',
+    de: 'Ignatianische Pädagogik', pt: 'Pedagogia Inaciana',
+    zh: '依纳爵教育法', hi: 'इग्नाशियन शिक्षाशास्त्र', ja: 'イグナチオ教育法',
+    it: 'Pedagogia Ignaziana',
   },
   'eje3.school_method': {
-    es: 'Si tu colegio tiene una metodología propia (ignaciana, salesiana, Montessori, design thinking del centro), Tuvi la incorpora también.',
-    en: 'If your school has its own pedagogy (Ignatian, Salesian, Montessori, design thinking-based), Tuvi takes it on board too.',
-    ca: 'Si la teva escola té una metodologia pròpia (ignasiana, salesiana, Montessori, design thinking del centre), Tuvi també la incorpora.',
-    gl: 'Se a túa escola ten unha metodoloxía propia (ignaciana, salesiana, Montessori, design thinking do centro), Tuvi tamén a incorpora.',
-    eu: 'Zure ikastetxeak metodologia propio bat badu (ignaziarra, salestar, Montessori, ikastetxearen design thinking), Tuvik hori ere barneratzen du.',
-    fr: 'Si ton établissement a sa propre méthode (ignatienne, salésienne, Montessori, design thinking de centre), Tuvi l\'intègre aussi.',
-    de: 'Wenn deine Schule eine eigene Pädagogik hat (ignatianisch, salesianisch, Montessori, schuleigenes Design Thinking), übernimmt Tuvi sie ebenfalls.',
-    pt: 'Se a tua escola tem uma metodologia própria (inaciana, salesiana, Montessori, design thinking do centro), a Tuvi incorpora-a também.',
-    zh: '如果你的学校有自己的教学法（依纳爵、慈幼会、蒙台梭利、本校设计思维），Tuvi 也会一并采纳。',
-    hi: 'अगर आपके स्कूल की अपनी विधि है (इग्नाशियन, सलेसियन, मॉन्टेसरी, स्कूल का डिज़ाइन थिंकिंग), तो Tuvi उसे भी अपनाता है।',
-    ja: 'あなたの学校に独自の教育法（イグナチオ式、サレジオ会、モンテッソーリ、学校独自のデザイン思考など）があれば、Tuvi はそれも取り入れます。',
-    it: 'Se la tua scuola ha una metodologia propria (ignaziana, salesiana, Montessori, design thinking del centro), Tuvi la incorpora anche.',
+    es: 'Si tu colegio tiene una metodología propia (jesuita, Montessori, Waldorf, design thinking del centro…), Tuvi la incorpora también.',
+    en: 'If your school has its own pedagogy (Jesuit, Montessori, Waldorf, design thinking-based, etc.), Tuvi takes it on board too.',
+    ca: 'Si la teva escola té una metodologia pròpia (jesuïta, Montessori, Waldorf, design thinking del centre…), Tuvi també la incorpora.',
+    gl: 'Se a túa escola ten unha metodoloxía propia (xesuíta, Montessori, Waldorf, design thinking do centro…), Tuvi tamén a incorpora.',
+    eu: 'Zure ikastetxeak metodologia propio bat badu (jesuita, Montessori, Waldorf, ikastetxearen design thinking…), Tuvik hori ere barneratzen du.',
+    fr: 'Si ton établissement a sa propre méthode (jésuite, Montessori, Waldorf, design thinking de centre…), Tuvi l\'intègre aussi.',
+    de: 'Wenn deine Schule eine eigene Pädagogik hat (jesuitisch, Montessori, Waldorf, schuleigenes Design Thinking…), übernimmt Tuvi sie ebenfalls.',
+    pt: 'Se a tua escola tem uma metodologia própria (jesuíta, Montessori, Waldorf, design thinking do centro…), a Tuvi incorpora-a também.',
+    zh: '如果你的学校有自己的教学法（耶稣会、蒙台梭利、华德福、本校设计思维等），Tuvi 也会一并采纳。',
+    hi: 'अगर आपके स्कूल की अपनी विधि है (जेसुइट, मॉन्टेसरी, वाल्डोर्फ, स्कूल का डिज़ाइन थिंकिंग आदि), तो Tuvi उसे भी अपनाता है।',
+    ja: 'あなたの学校に独自の教育法（イエズス会、モンテッソーリ、ヴァルドルフ、学校独自のデザイン思考など）があれば、Tuvi はそれも取り入れます。',
+    it: 'Se la tua scuola ha una metodologia propria (gesuita, Montessori, Waldorf, design thinking del centro…), Tuvi la incorpora anche.',
   },
 
   // ──────────────────────── EJE 4 · CENTROS ───────────────────────

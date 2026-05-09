@@ -1,19 +1,30 @@
 ---
 import { t } from '../i18n/ui-strings';
-import type { Locale } from '../i18n/locales';
+import type { Locale, } from '../i18n/locales';
+import type { UIStringKey } from '../i18n/ui-strings';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 
-const RECIPES = [
-  { key: 'eje3.recipe_pbl' as const,           number: '1' },
-  { key: 'eje3.recipe_socratic' as const,      number: '2' },
-  { key: 'eje3.recipe_design' as const,        number: '3' },
-  { key: 'eje3.recipe_workshop' as const,      number: '4' },
-  { key: 'eje3.recipe_gamification' as const,  number: '5' },
-  { key: 'eje3.recipe_assessment' as const,    number: '6' },
+// 12 metodologías más conocidas (de las 16 core en master_methodology).
+// Las restantes (Direct Instruction, Stations, Game-Based, Waldorf,
+// Critical Thinking, STEAM, IB, Inclusion, Bilingual, Emotional…) se
+// indican en `recipes_more` para mantener honestidad sin saturar el grid.
+const RECIPES: { key: UIStringKey; number: string }[] = [
+  { key: 'eje3.recipe_pbl',           number: '1' },
+  { key: 'eje3.recipe_flipped',       number: '2' },
+  { key: 'eje3.recipe_gamification',  number: '3' },
+  { key: 'eje3.recipe_design',        number: '4' },
+  { key: 'eje3.recipe_socratic',      number: '5' },
+  { key: 'eje3.recipe_cooperative',   number: '6' },
+  { key: 'eje3.recipe_challenge',     number: '7' },
+  { key: 'eje3.recipe_workshop',      number: '8' },
+  { key: 'eje3.recipe_debate',        number: '9' },
+  { key: 'eje3.recipe_montessori',    number: '10' },
+  { key: 'eje3.recipe_reggio',        number: '11' },
+  { key: 'eje3.recipe_ignatian',      number: '12' },
 ];
 ---
 
@@ -27,11 +38,11 @@ const RECIPES = [
     </p>
   </div>
 
-  <div class="mt-10 max-w-4xl mx-auto">
+  <div class="mt-10 max-w-5xl mx-auto">
     <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide text-center">
       {t('eje3.recipes_heading', locale)}
     </p>
-    <div class="mt-5 grid grid-cols-2 md:grid-cols-3 gap-3">
+    <div class="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {RECIPES.map((recipe) => (
         <div class="flex items-center gap-3 rounded-xl border border-tuvi-border bg-white px-4 py-3 hover:border-tuvi-primary transition-colors">
           <span
@@ -40,12 +51,15 @@ const RECIPES = [
           >
             {recipe.number}
           </span>
-          <span class="text-sm md:text-base font-medium text-tuvi-text-primary leading-tight">
+          <span class="text-sm font-medium text-tuvi-text-primary leading-tight">
             {t(recipe.key, locale)}
           </span>
         </div>
       ))}
     </div>
+    <p class="mt-4 text-sm text-tuvi-text-secondary text-center italic">
+      {t('eje3.recipes_more', locale)}
+    </p>
   </div>
 
   <p class="mt-8 text-tuvi-text-secondary text-center max-w-3xl mx-auto leading-relaxed">
