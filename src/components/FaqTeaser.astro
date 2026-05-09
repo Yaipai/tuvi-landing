@@ -10,26 +10,26 @@ const { locale } = Astro.props;
 
 <section class="max-w-landing mx-auto px-6 py-12 md:py-16">
   <div class="max-w-2xl mx-auto">
-    <p class="text-sm font-semibold text-tuvi-primary uppercase tracking-wide text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-tuvi-text-primary text-center">
       {t('faq_teaser.title', locale)}
-    </p>
-    <ul class="mt-6 space-y-3 text-tuvi-text-primary">
-      <li class="flex gap-3">
-        <span class="text-tuvi-primary font-bold mt-0.5">→</span>
-        <a href="/faq#trial" class="hover:text-tuvi-primary underline-offset-4 hover:underline">
-          {t('faq_teaser.q1', locale)}
+    </h2>
+    <ul class="mt-8 space-y-3 text-tuvi-text-primary">
+      <li>
+        <a href="/faq#trial" class="flex gap-3 items-start hover:text-tuvi-primary underline-offset-4 hover:underline">
+          <span class="text-tuvi-primary font-bold mt-0.5">→</span>
+          <span>{t('faq_teaser.q1', locale)}</span>
         </a>
       </li>
-      <li class="flex gap-3">
-        <span class="text-tuvi-primary font-bold mt-0.5">→</span>
-        <a href="/faq#fit" class="hover:text-tuvi-primary underline-offset-4 hover:underline">
-          {t('faq_teaser.q2', locale)}
+      <li>
+        <a href="/faq#fit" class="flex gap-3 items-start hover:text-tuvi-primary underline-offset-4 hover:underline">
+          <span class="text-tuvi-primary font-bold mt-0.5">→</span>
+          <span>{t('faq_teaser.q2', locale)}</span>
         </a>
       </li>
-      <li class="flex gap-3">
-        <span class="text-tuvi-primary font-bold mt-0.5">→</span>
-        <a href="/faq#schools" class="hover:text-tuvi-primary underline-offset-4 hover:underline">
-          {t('faq_teaser.q3', locale)}
+      <li>
+        <a href="/faq#schools" class="flex gap-3 items-start hover:text-tuvi-primary underline-offset-4 hover:underline">
+          <span class="text-tuvi-primary font-bold mt-0.5">→</span>
+          <span>{t('faq_teaser.q3', locale)}</span>
         </a>
       </li>
     </ul>
