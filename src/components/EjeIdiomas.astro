@@ -7,7 +7,24 @@ interface Props {
 }
 const { locale } = Astro.props;
 
-const LANG_TAGS = ['ES', 'EN', 'CA', 'GL', 'EU', 'FR', 'DE', 'PT', 'IT', 'ZH', 'HI', 'JA'];
+// Endónimos: el nombre del idioma EN ese mismo idioma. No se traducen
+// según el locale visitante — un usuario en /en ve "Català" y "Español"
+// igual que un usuario en /es. Es la convención i18n estándar (Wikipedia,
+// Apple Languages list) y evita decidir si "Chinese" o "中文" pesa más.
+const LANG_TAGS = [
+  'Español',
+  'English',
+  'Català',
+  'Galego',
+  'Euskara',
+  'Français',
+  'Deutsch',
+  'Português',
+  'Italiano',
+  '中文',
+  'हिन्दी',
+  '日本語',
+];
 ---
 
 <section class="max-w-landing mx-auto px-6 py-12 md:py-16">
@@ -22,7 +39,7 @@ const LANG_TAGS = ['ES', 'EN', 'CA', 'GL', 'EU', 'FR', 'DE', 'PT', 'IT', 'ZH', '
 
   <ul class="mt-8 flex flex-wrap gap-2 justify-center max-w-2xl mx-auto">
     {LANG_TAGS.map((tag) => (
-      <li class="px-3 py-1.5 bg-tuvi-primary-light text-tuvi-primary-dark rounded-md text-sm font-mono font-semibold">
+      <li class="px-3 py-1.5 bg-tuvi-primary-light text-tuvi-primary-dark rounded-md text-sm font-semibold">
         {tag}
       </li>
     ))}
