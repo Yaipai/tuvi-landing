@@ -93,3 +93,8 @@ Webgune honek ez ditu cookierik erabiltzen. Autentifikazioa eta erabiltzailearen
 ## Nazioarteko transferentziak
 
 Datuak AEBetan kokatutako hornitzaileei transferitu dakizkieke (ikusi Tratamenduaren arduradunen atala). Nazioarteko transferentzia guztiak Europar Batzordeak onartutako Klausula Kontraktual Tipoetan (SCCs) oinarritzen dira, datuen babes maila egokia bermatzeko.
+
+
+## Nire kontua ezabatu
+
+Aplikaziorako sarbiderik ez baduzu, kontua ezabatzeko eskaera egin dezakezu orri publikotik: [Nire Tuvi kontua ezabatu (web inprimakia)](./delete-account/).

@@ -96,3 +96,8 @@ Les données peuvent être transférées à des prestataires situés aux États-
 
 ---
 *Version indicative. La version contraignante est la version espagnole.*
+
+
+## Supprimer mon compte
+
+Si vous n'avez pas accès à l'application, vous pouvez demander la suppression de votre compte depuis la page publique : [Supprimer mon compte Tuvi (formulaire web)](./delete-account/).

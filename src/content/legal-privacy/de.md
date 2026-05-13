@@ -96,3 +96,8 @@ Die Daten können an Anbieter mit Sitz in den USA übermittelt werden (siehe Abs
 
 ---
 *Hinweisende Version. Verbindlich ist die spanische Fassung.*
+
+
+## Mein Konto löschen
+
+Wenn Sie keinen Zugriff auf die App haben, können Sie die Kontolöschung über die öffentliche Seite anfordern: [Mein Tuvi-Konto löschen (Web-Formular)](./delete-account/).

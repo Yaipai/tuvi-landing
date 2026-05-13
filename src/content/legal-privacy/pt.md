@@ -96,3 +96,8 @@ Os dados podem ser transferidos para fornecedores localizados nos EUA (ver secç
 
 ---
 *Versão orientativa. A versão vinculante é a espanhola.*
+
+
+## Excluir minha conta
+
+Se você não tem acesso ao app, pode solicitar a exclusão da sua conta na página pública: [Excluir minha conta Tuvi (formulário web)](./delete-account/).

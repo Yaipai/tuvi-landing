@@ -93,3 +93,8 @@ Este sitio web no utiliza cookies. La autenticación y las preferencias del usua
 ## Transferencias internacionales
 
 Los datos pueden ser transferidos a proveedores ubicados en EE.UU. (ver sección Encargados del tratamiento). Todas las transferencias internacionales están amparadas por Cláusulas Contractuales Tipo (SCCs) aprobadas por la Comisión Europea para garantizar un nivel adecuado de protección de datos.
+
+
+## Eliminar mi cuenta
+
+Si no tienes acceso a la app, puedes solicitar la eliminación de tu cuenta desde la página pública: [Eliminar mi cuenta de Tuvi (formulario web)](./delete-account/).

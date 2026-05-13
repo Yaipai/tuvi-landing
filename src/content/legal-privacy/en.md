@@ -93,3 +93,8 @@ This website does not use cookies. Authentication and user preferences are store
 ## International transfers
 
 Data may be transferred to providers located in the USA (see Data processors section). All international transfers are covered by Standard Contractual Clauses (SCCs) approved by the European Commission to ensure an adequate level of data protection.
+
+
+## Delete my account
+
+If you do not have access to the app, you can request account deletion from the public page: [Delete my Tuvi account (web form)](./delete-account/).

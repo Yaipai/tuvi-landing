@@ -1,0 +1,603 @@
+---
+import Base from '../../../layouts/Base.astro';
+import LocaleSelector from '../../../components/LocaleSelector.astro';
+import Footer from '../../../components/Footer.astro';
+import { SUPPORTED_LOCALES, type Locale } from '../../../i18n/locales';
+
+export async function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+
+// Email destino y prefijos del asunto / cuerpo
+const SUPPORT_EMAIL = 'legal@team-banzai.com';
+
+// Diccionario inline: solo strings de esta página.
+// Sigue patrón de ui-strings.ts pero localizado para no inflar el bundle global.
+type Dict = Record<Locale, string>;
+const T = {
+  pageTitle: {
+    es: 'Eliminar mi cuenta de Tuvi',
+    en: 'Delete my Tuvi account',
+    ca: 'Eliminar el meu compte de Tuvi',
+    gl: 'Eliminar a miña conta de Tuvi',
+    eu: 'Nire Tuvi kontua ezabatu',
+    fr: 'Supprimer mon compte Tuvi',
+    de: 'Mein Tuvi-Konto löschen',
+    pt: 'Excluir minha conta Tuvi',
+    zh: '删除我的 Tuvi 账号',
+    hi: 'मेरा Tuvi खाता हटाएं',
+    ja: 'Tuvi アカウントを削除',
+    it: 'Elimina il mio account Tuvi',
+  } as Dict,
+  metaDescription: {
+    es: 'Solicita la eliminación permanente de tu cuenta de Tuvi y de tus datos personales. Procesamos la solicitud en 30 días.',
+    en: 'Request permanent deletion of your Tuvi account and personal data. We process requests within 30 days.',
+    ca: 'Sol·licita l\'eliminació permanent del teu compte de Tuvi i de les teves dades personals. Processem la sol·licitud en 30 dies.',
+    gl: 'Solicita a eliminación permanente da túa conta de Tuvi e dos teus datos persoais. Procesamos a solicitude en 30 días.',
+    eu: 'Eskatu zure Tuvi kontuaren eta datu pertsonalen behin betiko ezabaketa. 30 egunean prozesatzen dugu eskaera.',
+    fr: 'Demandez la suppression définitive de votre compte Tuvi et de vos données personnelles. Traitement sous 30 jours.',
+    de: 'Beantragen Sie die endgültige Löschung Ihres Tuvi-Kontos und Ihrer personenbezogenen Daten. Bearbeitung innerhalb von 30 Tagen.',
+    pt: 'Solicite a exclusão permanente da sua conta Tuvi e dos seus dados pessoais. Processamos em 30 dias.',
+    zh: '申请永久删除您的 Tuvi 账号和个人数据。我们将在 30 天内处理。',
+    hi: 'अपने Tuvi खाते और व्यक्तिगत डेटा को स्थायी रूप से हटाने का अनुरोध करें। 30 दिनों में प्रसंस्करण।',
+    ja: 'Tuvi アカウントと個人データの完全な削除をリクエスト。30 日以内に処理します。',
+    it: 'Richiedi l\'eliminazione permanente del tuo account Tuvi e dei tuoi dati personali. Elaborazione entro 30 giorni.',
+  } as Dict,
+  intro: {
+    es: 'Esta página permite solicitar la eliminación permanente de tu cuenta de Tuvi y de los datos personales asociados. Si tienes la app instalada, también puedes hacerlo desde Perfil → Eliminar cuenta. Esta vía web está disponible para usuarios sin acceso a la app.',
+    en: 'This page lets you request permanent deletion of your Tuvi account and associated personal data. If you have the app installed, you can also do this from Profile → Delete account. This web channel is available for users without access to the app.',
+    ca: 'Aquesta pàgina permet sol·licitar l\'eliminació permanent del teu compte de Tuvi i de les dades personals associades. Si tens l\'app instal·lada, també pots fer-ho des de Perfil → Eliminar compte. Aquesta via web és per a usuaris sense accés a l\'app.',
+    gl: 'Esta páxina permite solicitar a eliminación permanente da túa conta de Tuvi e dos datos persoais asociados. Se tes a app instalada, tamén podes facelo desde Perfil → Eliminar conta. Esta vía web está dispoñible para usuarios sen acceso á app.',
+    eu: 'Orri honek zure Tuvi kontuaren eta lotutako datu pertsonalen behin betiko ezabaketa eskatzeko aukera ematen du. Aplikazioa instalatuta baduzu, Profila → Kontua ezabatu aukeratik ere egin dezakezu. Web bide hau aplikaziorako sarbiderik ez duten erabiltzaileentzat dago eskuragarri.',
+    fr: 'Cette page vous permet de demander la suppression définitive de votre compte Tuvi et des données personnelles associées. Si l\'application est installée, vous pouvez aussi le faire depuis Profil → Supprimer le compte. Ce canal web est disponible pour les utilisateurs sans accès à l\'application.',
+    de: 'Auf dieser Seite können Sie die endgültige Löschung Ihres Tuvi-Kontos und der zugehörigen personenbezogenen Daten beantragen. Wenn die App installiert ist, können Sie dies auch unter Profil → Konto löschen tun. Dieser Web-Kanal steht Benutzern ohne Zugriff auf die App zur Verfügung.',
+    pt: 'Esta página permite solicitar a exclusão permanente da sua conta Tuvi e dos dados pessoais associados. Se você tem o app instalado, também pode fazê-lo em Perfil → Excluir conta. Este canal web está disponível para usuários sem acesso ao app.',
+    zh: '此页面用于申请永久删除您的 Tuvi 账号及相关个人数据。如果您已安装应用，也可以通过"个人资料 → 删除账号"进行操作。此网页通道供无法访问应用的用户使用。',
+    hi: 'यह पृष्ठ आपको अपने Tuvi खाते और संबंधित व्यक्तिगत डेटा को स्थायी रूप से हटाने का अनुरोध करने देता है। यदि आपके पास ऐप इंस्टॉल है, तो आप प्रोफ़ाइल → खाता हटाएं से भी ऐसा कर सकते हैं। यह वेब चैनल उन उपयोगकर्ताओं के लिए उपलब्ध है जिनके पास ऐप तक पहुंच नहीं है।',
+    ja: 'このページでは、Tuvi アカウントと関連する個人データの完全な削除をリクエストできます。アプリがインストールされている場合は、プロフィール → アカウント削除 からも実行できます。この Web 経路はアプリにアクセスできないユーザー向けです。',
+    it: 'Questa pagina ti permette di richiedere l\'eliminazione permanente del tuo account Tuvi e dei dati personali associati. Se hai l\'app installata, puoi farlo anche da Profilo → Elimina account. Questo canale web è disponibile per gli utenti senza accesso all\'app.',
+  } as Dict,
+  whatDeletedHeading: {
+    es: 'Qué se elimina',
+    en: 'What gets deleted',
+    ca: 'Què s\'elimina',
+    gl: 'Que se elimina',
+    eu: 'Zer ezabatzen den',
+    fr: 'Ce qui est supprimé',
+    de: 'Was gelöscht wird',
+    pt: 'O que é excluído',
+    zh: '将删除的内容',
+    hi: 'क्या हटाया जाता है',
+    ja: '削除される内容',
+    it: 'Cosa viene eliminato',
+  } as Dict,
+  whatDeletedItems: {
+    es: [
+      'Cuenta y datos personales (email, nombre, fecha de nacimiento si la hubieras facilitado).',
+      'Packs y materiales generados (sesiones, exámenes, fichas, recursos visuales).',
+      'Anotaciones e informes asociados a la cuenta.',
+      'Historial de uso, métricas de progreso y eventos de analítica de producto.',
+      'Suscripciones canceladas (los pagos pasados quedan sujetos a la sección "Qué no se elimina").',
+      'Datos de soporte y comunicaciones que contengan información personal identificable.',
+    ],
+    en: [
+      'Account and personal data (email, name, date of birth if provided).',
+      'Generated packs and materials (lessons, exams, handouts, visual resources).',
+      'Annotations and reports associated with the account.',
+      'Usage history, progress metrics and product analytics events.',
+      'Cancelled subscriptions (past payments remain subject to "What is not deleted").',
+      'Support data and communications containing personally identifiable information.',
+    ],
+    ca: [
+      'Compte i dades personals (email, nom, data de naixement si la vas facilitar).',
+      'Packs i materials generats (sessions, exàmens, fitxes, recursos visuals).',
+      'Anotacions i informes associats al compte.',
+      'Historial d\'ús, mètriques de progrés i esdeveniments d\'analítica de producte.',
+      'Subscripcions cancel·lades (els pagaments passats queden subjectes a "Què no s\'elimina").',
+      'Dades de suport i comunicacions amb informació personal identificable.',
+    ],
+    gl: [
+      'Conta e datos persoais (email, nome, data de nacemento se a facilitaches).',
+      'Packs e materiais xerados (sesións, exames, fichas, recursos visuais).',
+      'Anotacións e informes asociados á conta.',
+      'Historial de uso, métricas de progreso e eventos de analítica de produto.',
+      'Subscricións canceladas (os pagamentos pasados quedan suxeitos a "Que non se elimina").',
+      'Datos de soporte e comunicacións con información persoal identificable.',
+    ],
+    eu: [
+      'Kontua eta datu pertsonalak (emaila, izena, jaiotze-data emanez gero).',
+      'Sortutako pack-ak eta materialak (saioak, azterketak, fitxak, baliabide bisualak).',
+      'Kontuari lotutako oharrak eta txostenak.',
+      'Erabilera-historia, aurrerapen-metrikak eta produktu-analitikako gertaerak.',
+      'Ezeztatutako harpidetzak (iraganeko ordainketak "Zer ez den ezabatzen" atalaren mende daude).',
+      'Laguntzako datuak eta informazio pertsonal identifikagarria duten komunikazioak.',
+    ],
+    fr: [
+      'Compte et données personnelles (email, nom, date de naissance si fournie).',
+      'Packs et supports générés (séances, examens, fiches, ressources visuelles).',
+      'Annotations et rapports associés au compte.',
+      'Historique d\'utilisation, mesures de progression et événements analytics produit.',
+      'Abonnements annulés (les paiements passés restent soumis à « Ce qui n\'est pas supprimé »).',
+      'Données de support et communications contenant des informations personnelles identifiables.',
+    ],
+    de: [
+      'Konto und personenbezogene Daten (E-Mail, Name, ggf. Geburtsdatum).',
+      'Erstellte Packs und Materialien (Sitzungen, Prüfungen, Handouts, visuelle Ressourcen).',
+      'Anmerkungen und Berichte, die mit dem Konto verknüpft sind.',
+      'Nutzungshistorie, Fortschrittsmetriken und Produkt-Analytics-Ereignisse.',
+      'Gekündigte Abonnements (vergangene Zahlungen unterliegen weiterhin "Was nicht gelöscht wird").',
+      'Supportdaten und Kommunikation mit personenbezogenen Informationen.',
+    ],
+    pt: [
+      'Conta e dados pessoais (email, nome, data de nascimento se fornecida).',
+      'Packs e materiais gerados (aulas, provas, fichas, recursos visuais).',
+      'Anotações e relatórios associados à conta.',
+      'Histórico de uso, métricas de progresso e eventos de analytics de produto.',
+      'Assinaturas canceladas (pagamentos passados ficam sujeitos a "O que não é excluído").',
+      'Dados de suporte e comunicações com informações pessoais identificáveis.',
+    ],
+    zh: [
+      '账号及个人数据（电子邮件、姓名、出生日期（如已提供））。',
+      '生成的内容包和教学材料（课时、考试、讲义、可视化资源）。',
+      '与账号关联的笔记和报告。',
+      '使用历史记录、学习进度指标和产品分析事件。',
+      '已取消的订阅（过往付款仍受"不会删除的内容"约束）。',
+      '包含可识别个人信息的支持数据和通讯记录。',
+    ],
+    hi: [
+      'खाता और व्यक्तिगत डेटा (ईमेल, नाम, जन्म तिथि यदि प्रदान की गई हो)।',
+      'जनरेट किए गए पैक और सामग्री (सत्र, परीक्षाएँ, हैंडआउट, विज़ुअल संसाधन)।',
+      'खाते से जुड़ी टिप्पणियाँ और रिपोर्ट।',
+      'उपयोग इतिहास, प्रगति मीट्रिक और उत्पाद विश्लेषण ईवेंट।',
+      'रद्द की गई सदस्यताएँ (पिछले भुगतान "क्या नहीं हटाया जाता" के अधीन रहते हैं)।',
+      'पहचान योग्य व्यक्तिगत जानकारी वाले समर्थन डेटा और संचार।',
+    ],
+    ja: [
+      'アカウントと個人データ（メール、氏名、提供された場合は生年月日）。',
+      '生成されたパックと教材（授業、試験、ハンドアウト、ビジュアルリソース）。',
+      'アカウントに関連付けられた注釈とレポート。',
+      '利用履歴、進捗メトリクス、プロダクトアナリティクスイベント。',
+      'キャンセルされたサブスクリプション（過去の支払いは「削除されない情報」の対象です）。',
+      '個人識別情報を含むサポートデータと通信記録。',
+    ],
+    it: [
+      'Account e dati personali (email, nome, data di nascita se fornita).',
+      'Pack e materiali generati (lezioni, esami, dispense, risorse visive).',
+      'Annotazioni e report associati all\'account.',
+      'Cronologia di utilizzo, metriche di progresso ed eventi di analytics di prodotto.',
+      'Abbonamenti cancellati (i pagamenti passati restano soggetti a "Cosa non viene eliminato").',
+      'Dati di supporto e comunicazioni con informazioni personali identificabili.',
+    ],
+  } as Record<Locale, string[]>,
+  whatKeptHeading: {
+    es: 'Qué no se elimina (excepciones legales)',
+    en: 'What is not deleted (legal exceptions)',
+    ca: 'Què no s\'elimina (excepcions legals)',
+    gl: 'Que non se elimina (excepcións legais)',
+    eu: 'Zer ez den ezabatzen (lege-salbuespenak)',
+    fr: 'Ce qui n\'est pas supprimé (exceptions légales)',
+    de: 'Was nicht gelöscht wird (gesetzliche Ausnahmen)',
+    pt: 'O que não é excluído (exceções legais)',
+    zh: '不会删除的内容（法律例外）',
+    hi: 'क्या नहीं हटाया जाता (कानूनी अपवाद)',
+    ja: '削除されない情報（法的例外）',
+    it: 'Cosa non viene eliminato (eccezioni legali)',
+  } as Dict,
+  whatKeptItems: {
+    es: [
+      'Datos de facturación requeridos por la normativa fiscal española (conservación obligatoria durante 5 años).',
+      'Logs de seguridad y auditoría anonimizados (sin información personal identificable).',
+    ],
+    en: [
+      'Billing data required by Spanish tax law (mandatory retention for 5 years).',
+      'Anonymised security and audit logs (no personally identifiable information).',
+    ],
+    ca: [
+      'Dades de facturació requerides per la normativa fiscal espanyola (conservació obligatòria durant 5 anys).',
+      'Logs de seguretat i auditoria anonimitzats (sense informació personal identificable).',
+    ],
+    gl: [
+      'Datos de facturación esixidos pola normativa fiscal española (conservación obrigatoria durante 5 anos).',
+      'Logs de seguridade e auditoría anonimizados (sen información persoal identificable).',
+    ],
+    eu: [
+      'Espainiako zerga-araudiaren arabera beharrezkoak diren fakturazio-datuak (5 urteko derrigorrezko gordeketa).',
+      'Anonimizatutako segurtasun- eta auditoretza-logak (informazio pertsonal identifikagarririk gabe).',
+    ],
+    fr: [
+      'Données de facturation requises par la législation fiscale espagnole (conservation obligatoire pendant 5 ans).',
+      'Journaux de sécurité et d\'audit anonymisés (sans information personnelle identifiable).',
+    ],
+    de: [
+      'Rechnungsdaten gemäß spanischem Steuerrecht (gesetzliche Aufbewahrung 5 Jahre).',
+      'Anonymisierte Sicherheits- und Auditprotokolle (ohne personenbezogene Daten).',
+    ],
+    pt: [
+      'Dados de faturação exigidos pela legislação fiscal espanhola (retenção obrigatória durante 5 anos).',
+      'Logs de segurança e auditoria anonimizados (sem informações pessoais identificáveis).',
+    ],
+    zh: [
+      '西班牙税法要求保留的发票数据（强制保存 5 年）。',
+      '已匿名化的安全和审计日志（不含可识别个人信息）。',
+    ],
+    hi: [
+      'स्पेनिश कर कानून द्वारा आवश्यक बिलिंग डेटा (5 वर्षों तक अनिवार्य प्रतिधारण)।',
+      'अनामीकृत सुरक्षा और ऑडिट लॉग (कोई पहचान योग्य व्यक्तिगत जानकारी नहीं)।',
+    ],
+    ja: [
+      'スペインの税法で必要とされる請求データ（5 年間の保存義務）。',
+      '匿名化されたセキュリティおよび監査ログ（個人識別情報を含まない）。',
+    ],
+    it: [
+      'Dati di fatturazione richiesti dalla normativa fiscale spagnola (conservazione obbligatoria per 5 anni).',
+      'Log di sicurezza e audit anonimizzati (senza informazioni personali identificabili).',
+    ],
+  } as Record<Locale, string[]>,
+  deadline: {
+    es: 'Procesaremos tu solicitud en un máximo de 30 días desde la confirmación de tu identidad. Te enviaremos un email de confirmación cuando la eliminación esté completa.',
+    en: 'We will process your request within 30 days from identity confirmation. You will receive a confirmation email once deletion is complete.',
+    ca: 'Processarem la teva sol·licitud en un màxim de 30 dies des de la confirmació de la teva identitat. Rebràs un email de confirmació quan l\'eliminació estigui completa.',
+    gl: 'Procesaremos a túa solicitude nun máximo de 30 días desde a confirmación da túa identidade. Enviarémosche un email de confirmación cando a eliminación estea completa.',
+    eu: 'Zure eskaera 30 eguneko epean prozesatuko dugu, zure nortasuna baieztatu eta gero. Ezabaketa burutzen denean baieztapen-emaila bidaliko dizugu.',
+    fr: 'Nous traiterons votre demande sous 30 jours à compter de la vérification de votre identité. Vous recevrez un email de confirmation une fois la suppression effectuée.',
+    de: 'Wir bearbeiten Ihre Anfrage innerhalb von 30 Tagen nach Identitätsbestätigung. Sie erhalten eine Bestätigungs-E-Mail, sobald die Löschung abgeschlossen ist.',
+    pt: 'Processaremos sua solicitação em até 30 dias a partir da confirmação da sua identidade. Você receberá um email de confirmação quando a exclusão estiver completa.',
+    zh: '我们将在确认您身份后的 30 天内处理您的请求。删除完成后您将收到确认邮件。',
+    hi: 'हम आपकी पहचान की पुष्टि के बाद 30 दिनों के भीतर आपके अनुरोध को संसाधित करेंगे। हटाने के बाद आपको एक पुष्टि ईमेल प्राप्त होगा।',
+    ja: '本人確認後 30 日以内にリクエストを処理します。削除完了時に確認メールをお送りします。',
+    it: 'Elaboreremo la tua richiesta entro 30 giorni dalla conferma della tua identità. Riceverai un\'email di conferma una volta completata l\'eliminazione.',
+  } as Dict,
+  formHeading: {
+    es: 'Formulario de solicitud',
+    en: 'Request form',
+    ca: 'Formulari de sol·licitud',
+    gl: 'Formulario de solicitude',
+    eu: 'Eskaera-inprimakia',
+    fr: 'Formulaire de demande',
+    de: 'Antragsformular',
+    pt: 'Formulário de solicitação',
+    zh: '申请表',
+    hi: 'अनुरोध फॉर्म',
+    ja: 'リクエストフォーム',
+    it: 'Modulo di richiesta',
+  } as Dict,
+  emailLabel: {
+    es: 'Email de la cuenta',
+    en: 'Account email',
+    ca: 'Email del compte',
+    gl: 'Email da conta',
+    eu: 'Kontuaren emaila',
+    fr: 'Email du compte',
+    de: 'Konto-E-Mail',
+    pt: 'Email da conta',
+    zh: '账号邮箱',
+    hi: 'खाता ईमेल',
+    ja: 'アカウントのメール',
+    it: 'Email dell\'account',
+  } as Dict,
+  emailPlaceholder: {
+    es: 'tu@email.com',
+    en: 'you@email.com',
+    ca: 'tu@email.com',
+    gl: 'tu@email.com',
+    eu: 'zu@email.com',
+    fr: 'vous@email.com',
+    de: 'sie@email.com',
+    pt: 'voce@email.com',
+    zh: 'you@email.com',
+    hi: 'you@email.com',
+    ja: 'you@email.com',
+    it: 'tu@email.com',
+  } as Dict,
+  reasonLabel: {
+    es: 'Motivo (opcional, máx. 500 caracteres)',
+    en: 'Reason (optional, max 500 characters)',
+    ca: 'Motiu (opcional, màx. 500 caràcters)',
+    gl: 'Motivo (opcional, máx. 500 caracteres)',
+    eu: 'Arrazoia (aukerakoa, gehienez 500 karaktere)',
+    fr: 'Motif (facultatif, max 500 caractères)',
+    de: 'Grund (optional, max. 500 Zeichen)',
+    pt: 'Motivo (opcional, máx. 500 caracteres)',
+    zh: '原因（可选，最多 500 字符）',
+    hi: 'कारण (वैकल्पिक, अधिकतम 500 अक्षर)',
+    ja: '理由（任意、最大 500 文字）',
+    it: 'Motivo (opzionale, max 500 caratteri)',
+  } as Dict,
+  reasonPlaceholder: {
+    es: 'Si quieres, cuéntanos por qué eliminas tu cuenta. Nos ayuda a mejorar Tuvi.',
+    en: 'If you wish, tell us why you are deleting your account. It helps us improve Tuvi.',
+    ca: 'Si vols, explica\'ns per què elimines el teu compte. Ens ajuda a millorar Tuvi.',
+    gl: 'Se queres, cóntanos por que eliminas a túa conta. Axúdanos a mellorar Tuvi.',
+    eu: 'Nahi baduzu, esan zergatik ezabatzen duzun zure kontua. Tuvi hobetzen laguntzen digu.',
+    fr: 'Si vous le souhaitez, dites-nous pourquoi vous supprimez votre compte. Cela nous aide à améliorer Tuvi.',
+    de: 'Wenn Sie möchten, teilen Sie uns mit, warum Sie Ihr Konto löschen. Das hilft uns, Tuvi zu verbessern.',
+    pt: 'Se quiser, conte-nos por que está excluindo sua conta. Isso nos ajuda a melhorar a Tuvi.',
+    zh: '如果愿意，请告诉我们您删除账号的原因。这将帮助我们改进 Tuvi。',
+    hi: 'यदि आप चाहें, तो हमें बताएं कि आप अपना खाता क्यों हटा रहे हैं। यह हमें Tuvi में सुधार करने में मदद करता है।',
+    ja: 'よろしければ、アカウントを削除する理由をお聞かせください。Tuvi の改善に役立てます。',
+    it: 'Se vuoi, dicci perché stai eliminando il tuo account. Ci aiuta a migliorare Tuvi.',
+  } as Dict,
+  confirmLabel: {
+    es: 'Confirmo que soy el titular de esta cuenta y entiendo que esta acción es irreversible.',
+    en: 'I confirm that I am the holder of this account and understand that this action is irreversible.',
+    ca: 'Confirmo que sóc el titular d\'aquest compte i entenc que aquesta acció és irreversible.',
+    gl: 'Confirmo que son o titular desta conta e entendo que esta acción é irreversible.',
+    eu: 'Baieztatzen dut kontu honen titularra naizela eta ekintza hau itzulezina dela ulertzen dut.',
+    fr: 'Je confirme être titulaire de ce compte et comprendre que cette action est irréversible.',
+    de: 'Ich bestätige, dass ich der Inhaber dieses Kontos bin und verstehe, dass diese Aktion unwiderruflich ist.',
+    pt: 'Confirmo que sou o titular desta conta e entendo que esta ação é irreversível.',
+    zh: '我确认本人为此账号持有者，并理解此操作不可逆。',
+    hi: 'मैं पुष्टि करता हूं कि मैं इस खाते का धारक हूं और समझता हूं कि यह क्रिया अपरिवर्तनीय है।',
+    ja: 'このアカウントの所有者であり、この操作が取り消し不能であることを理解しています。',
+    it: 'Confermo di essere il titolare di questo account e di comprendere che questa azione è irreversibile.',
+  } as Dict,
+  submitLabel: {
+    es: 'Solicitar eliminación de cuenta',
+    en: 'Request account deletion',
+    ca: 'Sol·licitar eliminació del compte',
+    gl: 'Solicitar eliminación da conta',
+    eu: 'Kontuaren ezabaketa eskatu',
+    fr: 'Demander la suppression du compte',
+    de: 'Kontolöschung beantragen',
+    pt: 'Solicitar exclusão da conta',
+    zh: '申请删除账号',
+    hi: 'खाता हटाने का अनुरोध करें',
+    ja: 'アカウント削除をリクエスト',
+    it: 'Richiedi eliminazione account',
+  } as Dict,
+  mailHint: {
+    es: 'Al pulsar el botón se abrirá tu cliente de correo con un email pre-rellenado a',
+    en: 'Pressing the button opens your mail client with a pre-filled email to',
+    ca: 'En prémer el botó s\'obrirà el teu client de correu amb un email pre-omplert a',
+    gl: 'Ao pulsar o botón abrirase o teu cliente de correo cun email pre-enchido a',
+    eu: 'Botoia sakatzean zure posta-bezeroa irekiko da aurrez betetako emailarekin honi:',
+    fr: 'En cliquant sur le bouton, votre client mail s\'ouvre avec un email pré-rempli à',
+    de: 'Beim Klick auf die Schaltfläche öffnet sich Ihr Mail-Client mit einer vorausgefüllten E-Mail an',
+    pt: 'Ao pressionar o botão, seu cliente de email abrirá com um email pré-preenchido para',
+    zh: '点击按钮后将打开您的邮件客户端，并预填写发往以下地址的邮件：',
+    hi: 'बटन दबाने पर आपका मेल क्लाइंट निम्न पते पर पूर्व-भरे ईमेल के साथ खुलेगा:',
+    ja: 'ボタンを押すと、メールクライアントが以下宛のプリフィル済みメールで開きます：',
+    it: 'Premendo il pulsante si aprirà il tuo client di posta con un email precompilato a',
+  } as Dict,
+  mailFallback: {
+    es: 'Si no se abre, escribe directamente a',
+    en: 'If it does not open, write directly to',
+    ca: 'Si no s\'obre, escriu directament a',
+    gl: 'Se non se abre, escribe directamente a',
+    eu: 'Irekitzen ez bada, idatzi zuzenean honi:',
+    fr: 'S\'il ne s\'ouvre pas, écrivez directement à',
+    de: 'Falls nicht, schreiben Sie direkt an',
+    pt: 'Se não abrir, escreva diretamente para',
+    zh: '如果未打开，请直接发送邮件至',
+    hi: 'यदि नहीं खुलता है, तो सीधे यहां लिखें:',
+    ja: '開かない場合は、直接こちらにメールしてください：',
+    it: 'Se non si apre, scrivi direttamente a',
+  } as Dict,
+  validationConfirm: {
+    es: 'Debes confirmar que eres el titular de la cuenta.',
+    en: 'You must confirm that you are the account holder.',
+    ca: 'Has de confirmar que ets el titular del compte.',
+    gl: 'Debes confirmar que es o titular da conta.',
+    eu: 'Kontuaren titularra zarela baieztatu behar duzu.',
+    fr: 'Vous devez confirmer être titulaire du compte.',
+    de: 'Sie müssen bestätigen, dass Sie der Kontoinhaber sind.',
+    pt: 'Você deve confirmar que é o titular da conta.',
+    zh: '您必须确认您是账号持有者。',
+    hi: 'आपको पुष्टि करनी होगी कि आप खाता धारक हैं।',
+    ja: 'アカウントの所有者であることを確認してください。',
+    it: 'Devi confermare di essere il titolare dell\'account.',
+  } as Dict,
+  validationEmail: {
+    es: 'Introduce el email de tu cuenta.',
+    en: 'Enter your account email.',
+    ca: 'Introdueix l\'email del teu compte.',
+    gl: 'Introduce o email da túa conta.',
+    eu: 'Sartu zure kontuaren emaila.',
+    fr: 'Saisissez l\'email de votre compte.',
+    de: 'Geben Sie Ihre Konto-E-Mail ein.',
+    pt: 'Insira o email da sua conta.',
+    zh: '请输入您的账号邮箱。',
+    hi: 'अपना खाता ईमेल दर्ज करें।',
+    ja: 'アカウントのメールを入力してください。',
+    it: 'Inserisci l\'email del tuo account.',
+  } as Dict,
+  mailSubjectPrefix: {
+    es: '[Tuvi] Solicitud eliminación cuenta',
+    en: '[Tuvi] Account deletion request',
+    ca: '[Tuvi] Sol·licitud eliminació compte',
+    gl: '[Tuvi] Solicitude eliminación conta',
+    eu: '[Tuvi] Kontua ezabatzeko eskaera',
+    fr: '[Tuvi] Demande de suppression de compte',
+    de: '[Tuvi] Antrag auf Kontolöschung',
+    pt: '[Tuvi] Solicitação de exclusão de conta',
+    zh: '[Tuvi] 账号删除请求',
+    hi: '[Tuvi] खाता हटाने का अनुरोध',
+    ja: '[Tuvi] アカウント削除リクエスト',
+    it: '[Tuvi] Richiesta eliminazione account',
+  } as Dict,
+  mailBodyAccountLine: {
+    es: 'Email de la cuenta:',
+    en: 'Account email:',
+    ca: 'Email del compte:',
+    gl: 'Email da conta:',
+    eu: 'Kontuaren emaila:',
+    fr: 'Email du compte :',
+    de: 'Konto-E-Mail:',
+    pt: 'Email da conta:',
+    zh: '账号邮箱：',
+    hi: 'खाता ईमेल:',
+    ja: 'アカウントのメール：',
+    it: 'Email dell\'account:',
+  } as Dict,
+  mailBodyReasonLine: {
+    es: 'Motivo:',
+    en: 'Reason:',
+    ca: 'Motiu:',
+    gl: 'Motivo:',
+    eu: 'Arrazoia:',
+    fr: 'Motif :',
+    de: 'Grund:',
+    pt: 'Motivo:',
+    zh: '原因：',
+    hi: 'कारण:',
+    ja: '理由：',
+    it: 'Motivo:',
+  } as Dict,
+  mailBodyConfirmLine: {
+    es: 'Confirmo que soy el titular de la cuenta y que esta acción es irreversible.',
+    en: 'I confirm that I am the account holder and that this action is irreversible.',
+    ca: 'Confirmo que sóc el titular del compte i que aquesta acció és irreversible.',
+    gl: 'Confirmo que son o titular da conta e que esta acción é irreversible.',
+    eu: 'Baieztatzen dut kontuaren titularra naizela eta ekintza hau itzulezina dela.',
+    fr: 'Je confirme être le titulaire du compte et que cette action est irréversible.',
+    de: 'Ich bestätige, dass ich der Kontoinhaber bin und dass diese Aktion unwiderruflich ist.',
+    pt: 'Confirmo que sou o titular da conta e que esta ação é irreversível.',
+    zh: '我确认本人为账号持有者，且此操作不可逆。',
+    hi: 'मैं पुष्टि करता हूं कि मैं खाता धारक हूं और यह क्रिया अपरिवर्तनीय है।',
+    ja: 'アカウントの所有者であり、この操作が取り消し不能であることを確認します。',
+    it: 'Confermo di essere il titolare dell\'account e che questa azione è irreversibile.',
+  } as Dict,
+};
+
+const pageTitle = T.pageTitle[locale];
+---
+
+<Base locale={locale} pathWithinLocale="/legal/delete-account/" noindex={true}>
+  <header class="max-w-landing mx-auto px-6 py-4 flex justify-between items-center">
+    <a href={`/${locale}/`} class="font-bold text-xl text-tuvi-primary">Tuvi</a>
+    <LocaleSelector current={locale} />
+  </header>
+
+  <article class="prose mx-auto px-6 py-8 max-w-3xl">
+    <h1>{pageTitle}</h1>
+    <p>{T.intro[locale]}</p>
+
+    <h2>{T.whatDeletedHeading[locale]}</h2>
+    <ul>
+      {T.whatDeletedItems[locale].map((item) => <li>{item}</li>)}
+    </ul>
+
+    <h2>{T.whatKeptHeading[locale]}</h2>
+    <ul>
+      {T.whatKeptItems[locale].map((item) => <li>{item}</li>)}
+    </ul>
+
+    <p><strong>{T.deadline[locale]}</strong></p>
+
+    <h2>{T.formHeading[locale]}</h2>
+
+    <form
+      id="delete-account-form"
+      class="not-prose flex flex-col gap-4 border border-tuvi-border rounded-lg p-6 my-6 bg-white"
+      data-support-email={SUPPORT_EMAIL}
+      data-subject-prefix={T.mailSubjectPrefix[locale]}
+      data-body-account={T.mailBodyAccountLine[locale]}
+      data-body-reason={T.mailBodyReasonLine[locale]}
+      data-body-confirm={T.mailBodyConfirmLine[locale]}
+      data-validation-confirm={T.validationConfirm[locale]}
+      data-validation-email={T.validationEmail[locale]}
+    >
+      <div class="flex flex-col gap-1">
+        <label for="account-email" class="text-sm font-medium">
+          {T.emailLabel[locale]} <span aria-hidden="true">*</span>
+        </label>
+        <input
+          id="account-email"
+          name="account-email"
+          type="email"
+          required
+          placeholder={T.emailPlaceholder[locale]}
+          class="border border-tuvi-border rounded px-3 py-2 text-base"
+          autocomplete="email"
+        />
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label for="reason" class="text-sm font-medium">{T.reasonLabel[locale]}</label>
+        <textarea
+          id="reason"
+          name="reason"
+          maxlength="500"
+          rows="4"
+          placeholder={T.reasonPlaceholder[locale]}
+          class="border border-tuvi-border rounded px-3 py-2 text-base resize-y"
+        ></textarea>
+      </div>
+
+      <label class="flex items-start gap-2 text-sm">
+        <input
+          id="confirm-owner"
+          name="confirm-owner"
+          type="checkbox"
+          required
+          class="mt-1"
+        />
+        <span>{T.confirmLabel[locale]} <span aria-hidden="true">*</span></span>
+      </label>
+
+      <button
+        type="submit"
+        class="bg-tuvi-primary text-white font-semibold rounded px-4 py-3 hover:opacity-90 transition"
+      >
+        {T.submitLabel[locale]}
+      </button>
+
+      <p class="text-xs text-tuvi-text-secondary">
+        {T.mailHint[locale]}{' '}
+        <a href={`mailto:${SUPPORT_EMAIL}`} class="underline">{SUPPORT_EMAIL}</a>.
+        {' '}{T.mailFallback[locale]}{' '}
+        <a href={`mailto:${SUPPORT_EMAIL}`} class="underline">{SUPPORT_EMAIL}</a>.
+      </p>
+    </form>
+  </article>
+
+  <Footer locale={locale} />
+</Base>
+
+<script>
+  // Compose mailto: link from form fields. Progressive enhancement: si JS está
+  // desactivado, el botón hace submit estándar pero el form no tiene `action`
+  // — el párrafo de fallback enseña la dirección de soporte en texto plano.
+  const form = document.getElementById('delete-account-form') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = form.querySelector<HTMLInputElement>('#account-email');
+      const reasonInput = form.querySelector<HTMLTextAreaElement>('#reason');
+      const confirmInput = form.querySelector<HTMLInputElement>('#confirm-owner');
+
+      const email = emailInput?.value.trim() ?? '';
+      const reason = reasonInput?.value.trim() ?? '';
+      const confirmed = confirmInput?.checked ?? false;
+
+      if (!email) {
+        alert(form.dataset.validationEmail);
+        emailInput?.focus();
+        return;
+      }
+      if (!confirmed) {
+        alert(form.dataset.validationConfirm);
+        confirmInput?.focus();
+        return;
+      }
+
+      const supportEmail = form.dataset.supportEmail ?? '';
+      const subjectPrefix = form.dataset.subjectPrefix ?? '';
+      const subject = `${subjectPrefix} - ${email}`;
+
+      const bodyParts = [
+        `${form.dataset.bodyAccount ?? ''} ${email}`,
+        '',
+        reason ? `${form.dataset.bodyReason ?? ''} ${reason}` : '',
+        reason ? '' : '',
+        form.dataset.bodyConfirm ?? '',
+      ].filter((s) => s !== null);
+
+      const body = bodyParts.join('\n');
+      const href = `mailto:${supportEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = href;
+    });
+  }
+</script>

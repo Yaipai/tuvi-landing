@@ -96,3 +96,8 @@ I dati possono essere trasferiti a fornitori situati negli USA (vedere sezione R
 
 ---
 *Versione orientativa. La versione vincolante è quella spagnola.*
+
+
+## Elimina il mio account
+
+Se non hai accesso all'app, puoi richiedere l'eliminazione del tuo account dalla pagina pubblica: [Elimina il mio account Tuvi (modulo web)](./delete-account/).
