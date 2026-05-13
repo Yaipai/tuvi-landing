@@ -98,3 +98,7 @@ Os datos poden ser transferidos a provedores ubicados en EE.UU. (ver sección En
 ## Eliminar a miña conta
 
 Se non tes acceso á app, podes solicitar a eliminación da túa conta desde a páxina pública: [Eliminar a miña conta de Tuvi (formulario web)](./delete-account/).
+
+## Máis sobre o noso uso da IA
+
+Para entender que xeramos con intelixencia artificial, como o facemos e que decides ti como profesor, consulta a nosa páxina de [Transparencia sobre o uso da IA](../ia/).

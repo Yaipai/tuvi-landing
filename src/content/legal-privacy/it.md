@@ -101,3 +101,7 @@ I dati possono essere trasferiti a fornitori situati negli USA (vedere sezione R
 ## Elimina il mio account
 
 Se non hai accesso all'app, puoi richiedere l'eliminazione del tuo account dalla pagina pubblica: [Elimina il mio account Tuvi (modulo web)](./delete-account/).
+
+## Maggiori informazioni sul nostro uso dell'IA
+
+Per capire cosa generiamo con l'intelligenza artificiale, come lo facciamo e cosa decidi tu come insegnante, consulta la nostra pagina [Trasparenza sull'uso dell'IA](../ia/).

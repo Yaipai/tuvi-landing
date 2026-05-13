@@ -98,3 +98,7 @@ Datuak AEBetan kokatutako hornitzaileei transferitu dakizkieke (ikusi Tratamendu
 ## Nire kontua ezabatu
 
 Aplikaziorako sarbiderik ez baduzu, kontua ezabatzeko eskaera egin dezakezu orri publikotik: [Nire Tuvi kontua ezabatu (web inprimakia)](./delete-account/).
+
+## AAren erabilerari buruz gehiago
+
+Adimen artifizialaren bidez zer sortzen dugun, nola egiten dugun eta zer erabakitzen duzun zuk irakasle gisa ulertzeko, ikus [AAren erabileraren gardentasun-orria](../ia/).

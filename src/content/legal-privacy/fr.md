@@ -101,3 +101,7 @@ Les données peuvent être transférées à des prestataires situés aux États-
 ## Supprimer mon compte
 
 Si vous n'avez pas accès à l'application, vous pouvez demander la suppression de votre compte depuis la page publique : [Supprimer mon compte Tuvi (formulaire web)](./delete-account/).
+
+## En savoir plus sur notre utilisation de l'IA
+
+Pour comprendre ce que nous générons avec l'intelligence artificielle, comment nous le faisons et ce que vous décidez en tant qu'enseignant, consultez notre page [Transparence sur l'utilisation de l'IA](../ia/).

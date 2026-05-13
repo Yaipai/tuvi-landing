@@ -101,3 +101,7 @@ Die Daten können an Anbieter mit Sitz in den USA übermittelt werden (siehe Abs
 ## Mein Konto löschen
 
 Wenn Sie keinen Zugriff auf die App haben, können Sie die Kontolöschung über die öffentliche Seite anfordern: [Mein Tuvi-Konto löschen (Web-Formular)](./delete-account/).
+
+## Mehr zu unserem KI-Einsatz
+
+Um zu verstehen, was wir mit künstlicher Intelligenz erzeugen, wie wir es tun und was Sie als Lehrkraft entscheiden, lesen Sie unsere Seite [Transparenz zum KI-Einsatz](../ia/).

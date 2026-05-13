@@ -98,3 +98,7 @@ Data may be transferred to providers located in the USA (see Data processors sec
 ## Delete my account
 
 If you do not have access to the app, you can request account deletion from the public page: [Delete my Tuvi account (web form)](./delete-account/).
+
+## More on our use of AI
+
+To understand what we generate with artificial intelligence, how we do it and what you decide as a teacher, see our [AI transparency page](../ia/).

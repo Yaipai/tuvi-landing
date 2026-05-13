@@ -1,0 +1,73 @@
+---
+import { marked } from 'marked';
+import Base from '../../layouts/Base.astro';
+import LocaleSelector from '../../components/LocaleSelector.astro';
+import Footer from '../../components/Footer.astro';
+import { SUPPORTED_LOCALES, type Locale } from '../../i18n/locales';
+
+export async function getStaticPaths() {
+  return SUPPORTED_LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+
+// Per-locale SEO metadata. Inline diccionario (no inflar ui-strings global por una página).
+type Dict = Record<Locale, string>;
+const PAGE_TITLE: Dict = {
+  es: 'Cómo usa Tuvi la inteligencia artificial — Transparencia',
+  en: 'How Tuvi uses artificial intelligence — Transparency',
+  ca: 'Com utilitza Tuvi la intel·ligència artificial — Transparència',
+  gl: 'Como usa Tuvi a intelixencia artificial — Transparencia',
+  eu: 'Tuvik adimen artifiziala nola erabiltzen duen — Gardentasuna',
+  fr: "Comment Tuvi utilise l'intelligence artificielle — Transparence",
+  de: 'Wie Tuvi künstliche Intelligenz einsetzt — Transparenz',
+  pt: 'Como o Tuvi usa a inteligência artificial — Transparência',
+  zh: 'Tuvi 如何使用人工智能 — 透明度说明',
+  hi: 'Tuvi कृत्रिम बुद्धिमत्ता का उपयोग कैसे करता है — पारदर्शिता',
+  ja: 'Tuvi における AI の使い方 — 透明性について',
+  it: "Come Tuvi usa l'intelligenza artificiale — Trasparenza",
+};
+const PAGE_DESCRIPTION: Dict = {
+  es: 'Qué generamos con IA, cómo lo hacemos, qué puede salir mal y qué decides tú como profesor. Transparencia honesta sobre el uso de IA en Tuvi.',
+  en: 'What we generate with AI, how we do it, what can go wrong and what you decide as a teacher. Honest transparency about AI use in Tuvi.',
+  ca: "Què generem amb IA, com ho fem, què pot sortir malament i què decideixes tu com a professor. Transparència honesta sobre l'ús d'IA a Tuvi.",
+  gl: 'Que xeramos con IA, como o facemos, que pode saír mal e que decides ti como profesor. Transparencia honesta sobre o uso da IA en Tuvi.',
+  eu: "Zer sortzen dugun AAren bidez, nola egiten dugun, zer atera daiteke gaizki eta zer erabakitzen duzun zuk irakasle gisa. Tuvin AA nola erabiltzen den modu gardenean.",
+  fr: "Ce que nous générons avec l'IA, comment, ce qui peut mal tourner et ce que vous décidez en tant qu'enseignant. Transparence honnête sur l'utilisation de l'IA chez Tuvi.",
+  de: 'Was wir mit KI erzeugen, wie wir es tun, was schiefgehen kann und was Sie als Lehrkraft entscheiden. Ehrliche Transparenz über den KI-Einsatz bei Tuvi.',
+  pt: 'O que geramos com IA, como o fazemos, o que pode correr mal e o que decide o professor. Transparência honesta sobre o uso de IA no Tuvi.',
+  zh: '我们用 AI 生成什么、怎么做、可能出错的地方，以及作为教师由你做哪些决定。关于 Tuvi 使用 AI 的诚实说明。',
+  hi: 'हम AI से क्या बनाते हैं, कैसे बनाते हैं, क्या गलत हो सकता है, और शिक्षक के रूप में आप क्या तय करते हैं। Tuvi में AI के उपयोग पर ईमानदार पारदर्शिता।',
+  ja: 'Tuvi が AI で何を生成し、どう生成し、何が起こりうるか、教師として何を決めるのか。AI 利用に関する誠実な透明性。',
+  it: "Cosa generiamo con l'IA, come lo facciamo, cosa può andare storto e cosa decidi tu come insegnante. Trasparenza onesta sull'uso dell'IA in Tuvi.",
+};
+
+const modules = import.meta.glob<string>('../../content/ai-transparency/*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default',
+});
+
+const raw =
+  Object.entries(modules).find(([path]) => path.endsWith(`/${locale}.md`))?.[1] ??
+  Object.entries(modules).find(([path]) => path.endsWith('/es.md'))?.[1] ??
+  '';
+
+// Interpolate per-locale cross-links before parsing markdown.
+const interpolated = String(raw).replaceAll('{{LOCALE_URL}}', `/${locale}`);
+const html = await marked.parse(interpolated);
+---
+
+<Base
+  locale={locale}
+  pathWithinLocale="/ia/"
+  title={PAGE_TITLE[locale]}
+  description={PAGE_DESCRIPTION[locale]}
+>
+  <header class="max-w-landing mx-auto px-6 py-4 flex justify-between items-center">
+    <a href={`/${locale}/`} class="font-bold text-xl text-tuvi-primary">Tuvi</a>
+    <LocaleSelector current={locale} />
+  </header>
+  <article class="prose mx-auto px-6 py-8 max-w-3xl" set:html={html} />
+  <Footer locale={locale} />
+</Base>
